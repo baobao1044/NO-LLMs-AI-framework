@@ -37,7 +37,7 @@ class ProposerLoggingTests(unittest.TestCase):
                 max_calls_per_day=2,
                 max_total_seconds_per_day=5.0,
                 only_for_uncovered_signatures=False,
-                uncovered_source="",
+                uncovered_signatures_path="",
                 timeout_seconds=1.0,
             )
             runtime = ProposerRuntime(policy=policy, proposer=FixedProposer(), uncovered_signatures=set())

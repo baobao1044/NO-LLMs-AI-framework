@@ -82,6 +82,13 @@ def compare(
     }
 
     budget_b = summary_b.get("proposer_budget_spent") or {"calls": 0, "seconds": 0.0}
+    attempts_saved_a = int(summary_a.get("attempts_saved_by_patchers_approx", 0))
+    attempts_saved_b = int(summary_b.get("attempts_saved_by_patchers_approx", 0))
+    proposer_calls = int(budget_b.get("calls", 0))
+    proposer_seconds = float(budget_b.get("seconds", 0.0))
+    solve_gain_per_call = 0.0
+    if proposer_calls > 0:
+        solve_gain_per_call = solve_delta / proposer_calls
 
     enable = (
         solve_delta >= min_solve_rate_gain
@@ -102,6 +109,7 @@ def compare(
             "after": cov_b,
             "delta": cov_delta,
         },
+        "signature_coverage_delta": cov_delta,
         "top_uncovered_delta": top_uncovered_delta,
         "timeout_rate": {
             "before": timeout_a,
@@ -113,10 +121,17 @@ def compare(
             "after": flaky_b,
             "delta": flaky_delta,
         },
+        "attempts_saved_by_patchers": {
+            "before": attempts_saved_a,
+            "after": attempts_saved_b,
+            "delta": attempts_saved_b - attempts_saved_a,
+        },
+        "attempts_saved_by_patchers_delta": attempts_saved_b - attempts_saved_a,
         "cost": {
-            "proposer_calls": int(budget_b.get("calls", 0)),
-            "proposer_seconds": float(budget_b.get("seconds", 0.0)),
+            "proposer_calls": proposer_calls,
+            "proposer_seconds": proposer_seconds,
             "calls_by_proposer": dict(sorted((budget_b.get("calls_by_proposer") or {}).items())),
+            "solve_gain_per_call": round(solve_gain_per_call, 8),
         },
         "decision": {
             "enable_proposer": enable,
@@ -162,9 +177,14 @@ def render_markdown(payload: dict[str, Any]) -> str:
         f"- top_uncovered delta: added={uncovered['added_count']} removed={uncovered['removed_count']}"
     )
 
+    patch_delta = payload["attempts_saved_by_patchers"]
+    lines.append(
+        f"- attempts_saved_by_patchers: {patch_delta['before']} -> {patch_delta['after']} (delta {patch_delta['delta']:+d})"
+    )
+
     cost = payload["cost"]
     lines.append(
-        f"- proposer cost: calls={cost['proposer_calls']} seconds={cost['proposer_seconds']:.6f}"
+        f"- proposer cost: calls={cost['proposer_calls']} seconds={cost['proposer_seconds']:.6f} solve_gain_per_call={cost['solve_gain_per_call']:.8f}"
     )
 
     decision = payload["decision"]

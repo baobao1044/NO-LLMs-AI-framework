@@ -141,7 +141,7 @@ def get_default_proposer_runtime(force_reload: bool = False) -> ProposerRuntime:
         return _DEFAULT_RUNTIME
 
     policy = load_proposer_policy()
-    uncovered = load_uncovered_signatures(Path(policy.uncovered_source))
+    uncovered = load_uncovered_signatures(Path(policy.uncovered_signatures_path))
     proposer: Proposer | None = None
     if policy.enabled:
         proposer = CodexProposer(

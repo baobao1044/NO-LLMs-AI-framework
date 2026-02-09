@@ -93,6 +93,80 @@ class BuildChangelogTests(unittest.TestCase):
             self.assertIn("pass_rate_by_language delta: py:+0.100000, ts:-0.050000", content1)
             self.assertIn("patchers added: ts_ts2322_number_return_patcher", content1)
             self.assertIn("notes: regress=PASS; quality=PASS; replay=8/8 mismatch=0", content1)
+            self.assertIn("proposer_budget=unknown", content1)
+
+    def test_build_changelog_uses_ab_compare_when_available(self) -> None:
+        repo_root = Path(__file__).resolve().parents[1]
+        script = repo_root / "tools" / "build_changelog.py"
+
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            root = Path(tmp_dir)
+            changelog = root / "CHANGELOG.md"
+            changelog.write_text("# Changelog\n\n", encoding="utf-8")
+
+            reports = root / "reports"
+            reports.mkdir(parents=True, exist_ok=True)
+            day_dir = reports / "20260209"
+            day_dir.mkdir(parents=True, exist_ok=True)
+            (day_dir / "daily_summary.json").write_text(
+                json.dumps({"date": "20260209", "pass_rate_by_language": {"py": {"delta": 0.0}}}, ensure_ascii=True),
+                encoding="utf-8",
+            )
+            (day_dir / "ab_compare.json").write_text(
+                json.dumps(
+                    {
+                        "pass_rate_by_language": {"py": {"delta": 0.2}},
+                        "signature_coverage": {"delta": 0.15},
+                        "top_uncovered_delta": {"added_count": 1, "removed_count": 3},
+                        "cost": {"proposer_calls": 5, "proposer_seconds": 2.5, "solve_gain_per_call": 0.04},
+                    },
+                    ensure_ascii=True,
+                    indent=2,
+                ),
+                encoding="utf-8",
+            )
+            (day_dir / "replay_metrics_A.json").write_text(
+                json.dumps(
+                    {"replay_match": 10, "replay_eligible": 10, "env_fingerprint_mismatch_count": 0},
+                    ensure_ascii=True,
+                ),
+                encoding="utf-8",
+            )
+            (day_dir / "replay_metrics_B.json").write_text(
+                json.dumps(
+                    {"replay_match": 9, "replay_eligible": 9, "env_fingerprint_mismatch_count": 0},
+                    ensure_ascii=True,
+                ),
+                encoding="utf-8",
+            )
+
+            backlog_selected = root / "configs" / "backlog_selected.json"
+            backlog_selected.parent.mkdir(parents=True, exist_ok=True)
+            backlog_selected.write_text(json.dumps({"items": []}, ensure_ascii=True), encoding="utf-8")
+
+            proc = subprocess.run(
+                [
+                    sys.executable,
+                    str(script),
+                    "--changelog",
+                    str(changelog),
+                    "--progress-glob",
+                    str(reports / "progress_*.md"),
+                    "--daily-glob",
+                    str(reports / "*" / "daily_summary*.json"),
+                    "--backlog-selected",
+                    str(backlog_selected),
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertEqual(proc.returncode, 0)
+            content = changelog.read_text(encoding="utf-8")
+            self.assertIn("pass_rate_by_language delta: py:+0.200000", content)
+            self.assertIn("signature_coverage delta: +0.150000", content)
+            self.assertIn("top_uncovered delta: added=1, removed=3", content)
+            self.assertIn("proposer_budget=calls=5 seconds=2.500000 solve_gain_per_call=0.04000000", content)
 
 
 if __name__ == "__main__":

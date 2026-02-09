@@ -14,7 +14,7 @@ class ProposerPolicy:
     max_calls_per_day: int = 20
     max_total_seconds_per_day: float = 30.0
     only_for_uncovered_signatures: bool = True
-    uncovered_source: str = "configs/uncovered_signatures.json"
+    uncovered_signatures_path: str = "configs/uncovered_signatures.json"
     timeout_seconds: float = 2.0
 
 
@@ -23,6 +23,9 @@ def load_proposer_policy(path: Path = Path("configs/proposer_policy.json")) -> P
         return ProposerPolicy()
 
     payload = json.loads(path.read_text(encoding="utf-8"))
+    uncovered_path = payload.get("uncovered_signatures_path")
+    if uncovered_path is None:
+        uncovered_path = payload.get("uncovered_source", "configs/uncovered_signatures.json")
     return ProposerPolicy(
         enabled=bool(payload.get("enabled", False)),
         allowed_languages=tuple(str(item) for item in payload.get("allowed_languages", ["ts", "py"])),
@@ -30,7 +33,7 @@ def load_proposer_policy(path: Path = Path("configs/proposer_policy.json")) -> P
         max_calls_per_day=int(payload.get("max_calls_per_day", 20)),
         max_total_seconds_per_day=float(payload.get("max_total_seconds_per_day", 30.0)),
         only_for_uncovered_signatures=bool(payload.get("only_for_uncovered_signatures", True)),
-        uncovered_source=str(payload.get("uncovered_source", "configs/uncovered_signatures.json")),
+        uncovered_signatures_path=str(uncovered_path),
         timeout_seconds=float(payload.get("timeout_seconds", 2.0)),
     )
 

@@ -1,15 +1,15 @@
 {
-  "seed_base": 123,
+  "seed_base": 20260209,
   "seed_daily_mode": "date-derived",
-  "generated_task_count": 8,
-  "max_tasks_per_day": 12,
-  "max_attempts_per_task": 2,
-  "max_total_seconds": 90,
+  "generated_task_count": 50,
+  "max_tasks_per_day": 50,
+  "max_attempts_per_task": 6,
+  "max_total_seconds": 1200,
   "languages_enabled": [
     "ts",
     "py"
   ],
-  "generated_tag": "generated",
+  "generated_tag": "training_v1",
   "ts_templates": [
     "ts_union_narrowing",
     "ts_optional_chaining",
@@ -21,7 +21,10 @@
     "add",
     "sub",
     "mul",
-    "clamp"
+    "clamp",
+    "is_palindrome",
+    "parse_json_field",
+    "regex_findall"
   ],
   "ab_guardrails": {
     "min_solve_rate_gain": 0.0,

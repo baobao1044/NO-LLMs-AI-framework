@@ -17,11 +17,15 @@ class DailyConfigTests(unittest.TestCase):
             "max_attempts_per_task",
             "max_total_seconds",
             "languages_enabled",
+            "ab_guardrails",
         }
         self.assertTrue(required.issubset(payload.keys()))
         self.assertTrue(is_json_only(payload))
         self.assertIn(payload["seed_daily_mode"], ["fixed", "date-derived"])
         self.assertIsInstance(payload["languages_enabled"], list)
+        guardrails = payload["ab_guardrails"]
+        self.assertIn("max_timeout_increase", guardrails)
+        self.assertIn("max_flaky_increase", guardrails)
 
 
 if __name__ == "__main__":

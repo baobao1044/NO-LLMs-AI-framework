@@ -1,0 +1,35 @@
+{
+  "seed_base": 20260209,
+  "seed_daily_mode": "date-derived",
+  "generated_task_count": 120,
+  "max_tasks_per_day": 120,
+  "max_attempts_per_task": 8,
+  "max_total_seconds": 2400,
+  "languages_enabled": [
+    "ts",
+    "py"
+  ],
+  "generated_tag": "training_full",
+  "ts_templates": [
+    "ts_union_narrowing",
+    "ts_optional_chaining",
+    "ts_generic_identity",
+    "ts_record_shape",
+    "ts_null_undefined_strict"
+  ],
+  "py_templates": [
+    "add",
+    "sub",
+    "mul",
+    "clamp",
+    "is_palindrome",
+    "parse_json_field",
+    "regex_findall"
+  ],
+  "ab_guardrails": {
+    "min_solve_rate_gain": -0.02,
+    "max_timeout_increase": 0.02,
+    "max_flaky_increase": 0,
+    "auto_disable_proposer_on_guardrail_violation": false
+  }
+}

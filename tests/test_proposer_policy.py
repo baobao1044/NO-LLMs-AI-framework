@@ -48,7 +48,7 @@ class ProposerPolicyTests(unittest.TestCase):
             max_calls_per_day=10,
             max_total_seconds_per_day=5.0,
             only_for_uncovered_signatures=True,
-            uncovered_source="",
+            uncovered_signatures_path="",
             timeout_seconds=1.0,
         )
         proposer = DummyProposer()
@@ -75,7 +75,7 @@ class ProposerPolicyTests(unittest.TestCase):
             max_calls_per_day=10,
             max_total_seconds_per_day=5.0,
             only_for_uncovered_signatures=False,
-            uncovered_source="",
+            uncovered_signatures_path="",
             timeout_seconds=1.0,
         )
         proposer = DummyProposer()

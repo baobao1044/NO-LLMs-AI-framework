@@ -23,7 +23,11 @@ def _today_utc() -> str:
     return datetime.now(timezone.utc).strftime("%Y%m%d")
 
 
-def create_run_pack(date_yyyymmdd: str, metadata: dict[str, Any] | None = None) -> dict[str, Path]:
+def create_run_pack(
+    date_yyyymmdd: str,
+    metadata: dict[str, Any] | None = None,
+    reset_log: bool = True,
+) -> dict[str, Path]:
     run_dir = Path("runs") / date_yyyymmdd
     report_dir = Path("reports") / date_yyyymmdd
     run_dir.mkdir(parents=True, exist_ok=True)
@@ -40,7 +44,9 @@ def create_run_pack(date_yyyymmdd: str, metadata: dict[str, Any] | None = None) 
     }
     metadata_file.write_text(json.dumps(metadata_payload, ensure_ascii=True, indent=2), encoding="utf-8")
 
-    if not log_file.exists():
+    if reset_log:
+        log_file.write_text("", encoding="utf-8")
+    elif not log_file.exists():
         log_file.write_text("", encoding="utf-8")
 
     return {

@@ -95,6 +95,7 @@ def replay_records(records: list[dict]) -> tuple[int, dict[str, Any]]:
             "replay_match": 0,
             "replay_match_rate": 100.0,
             "unreplayable_lossy": 0,
+            "unreplayable_proposer_missing_code": 0,
             "timeout_rate": 0.0,
             "top_error_signature": [],
             "flaky_keys": [],
@@ -107,6 +108,7 @@ def replay_records(records: list[dict]) -> tuple[int, dict[str, Any]]:
     eligible = 0
     matched = 0
     unreplayable_lossy = 0
+    unreplayable_proposer_missing_code = 0
     timeout_count = 0
     mismatches: list[dict] = []
     signature_counts: Counter[str] = Counter()
@@ -130,6 +132,9 @@ def replay_records(records: list[dict]) -> tuple[int, dict[str, Any]]:
             code = event.get("code")
             if event.get("payload_is_lossy") is True:
                 unreplayable_lossy += 1
+                continue
+            if bool(event.get("proposer_used")) and not isinstance(code, str):
+                unreplayable_proposer_missing_code += 1
                 continue
             if not isinstance(task_payload, dict) or not isinstance(code, str):
                 mismatches.append(
@@ -196,6 +201,7 @@ def replay_records(records: list[dict]) -> tuple[int, dict[str, Any]]:
         "replay_match": matched,
         "replay_match_rate": round(pct, 4),
         "unreplayable_lossy": unreplayable_lossy,
+        "unreplayable_proposer_missing_code": unreplayable_proposer_missing_code,
         "timeout_rate": round(timeout_rate, 4),
         "top_error_signature": [
             {"error_signature": signature, "count": count}
@@ -226,6 +232,7 @@ def print_metrics(metrics: dict[str, Any]) -> None:
         f"{metrics['replay_match']}/{metrics['replay_eligible']} ({metrics['replay_match_rate']:.2f}%)"
     )
     print(f"unreplayable_lossy={metrics['unreplayable_lossy']}")
+    print(f"unreplayable_proposer_missing_code={metrics.get('unreplayable_proposer_missing_code', 0)}")
     print(f"timeout_rate={metrics['timeout_rate']:.2f}%")
     print(f"env_fingerprint_mismatch_count={metrics.get('env_fingerprint_mismatch_count', 0)}")
     if metrics.get("env_fingerprint_mismatch_count", 0) > 0:

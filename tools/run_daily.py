@@ -22,6 +22,8 @@ from core.proposers.policy import ProposerPolicy, load_proposer_policy, load_unc
 from core.proposers.runtime import ProposerRuntime
 from core.task import CodeTask
 from core.verifier import FunctionCase, build_composite_function_verifier, build_ts_composite_verifier
+from tools.ab_compare import compare as compare_ab
+from tools.ab_compare import render_markdown as render_ab_markdown
 from tools.collect_quality_metrics import build_metrics as build_quality_metrics
 from tools.create_run_pack import create_run_pack
 from tools.generate_tasks import generate_tasks
@@ -41,7 +43,13 @@ def parse_args() -> argparse.Namespace:
         "--proposer-policy",
         type=Path,
         default=Path("configs/proposer_policy.json"),
-        help="Proposer policy file used for single run or AB mode B.",
+        help="Proposer policy file used for single run mode.",
+    )
+    parser.add_argument(
+        "--proposer-policy-b",
+        type=Path,
+        default=None,
+        help="Optional proposer policy file used for AB mode B.",
     )
     return parser.parse_args()
 
@@ -154,6 +162,26 @@ def _collect_run_summary(events: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+def _attempts_saved_by_patchers(records: list[dict[str, Any]]) -> int:
+    runs: dict[str, list[dict[str, Any]]] = {}
+    for index, event in enumerate(records, start=1):
+        run_id = str(event.get("run_id") or f"legacy_run_{index}")
+        runs.setdefault(run_id, []).append(event)
+
+    saved = 0
+    for events in runs.values():
+        ordered = sorted(
+            events,
+            key=lambda event: (int(event.get("attempt_index") or 0), str(event.get("timestamp_utc") or "")),
+        )
+        solved_event = next((event for event in ordered if bool(event.get("passed"))), None)
+        if solved_event is None:
+            continue
+        if bool(solved_event.get("patch_applied")) and solved_event.get("parent_artifact_hash"):
+            saved += 1
+    return saved
+
+
 def _build_entries(config: dict[str, Any], seed: int) -> list[dict[str, Any]]:
     generated_count = int(config.get("generated_task_count", 8))
     languages_enabled = list(config.get("languages_enabled", ["ts", "py"]))
@@ -203,7 +231,7 @@ def _load_records(log_file: Path) -> list[dict[str, Any]]:
 
 
 def _build_runtime(policy: ProposerPolicy) -> ProposerRuntime:
-    uncovered = load_uncovered_signatures(Path(policy.uncovered_source))
+    uncovered = load_uncovered_signatures(Path(policy.uncovered_signatures_path))
     proposer = None
     if policy.enabled:
         proposer = CodexProposer(CodexProposerConfig(timeout_seconds=policy.timeout_seconds))
@@ -258,7 +286,7 @@ def _run_mode(
                 "max_calls_per_day": proposer_policy.max_calls_per_day,
                 "max_total_seconds_per_day": proposer_policy.max_total_seconds_per_day,
                 "only_for_uncovered_signatures": proposer_policy.only_for_uncovered_signatures,
-                "uncovered_source": proposer_policy.uncovered_source,
+                "uncovered_signatures_path": proposer_policy.uncovered_signatures_path,
                 "timeout_seconds": proposer_policy.timeout_seconds,
             },
             "budget": {
@@ -318,17 +346,21 @@ def _run_mode(
         "top_uncovered_signatures": quality_metrics.get("top_uncovered_signatures", []),
         "timeout_rate": quality_metrics.get("timeout_rate", 0.0),
         "flaky_groups_count": quality_metrics.get("flaky_groups_count", 0),
+        "attempts_saved_by_patchers_approx": _attempts_saved_by_patchers(records),
         "replay_match": replay_metrics.get("replay_match", 0),
         "replay_eligible": replay_metrics.get("replay_eligible", 0),
         "replay_match_rate": replay_metrics.get("replay_match_rate", 0.0),
         "env_fingerprint_mismatch_count": replay_metrics.get("env_fingerprint_mismatch_count", 0),
+        "unreplayable_proposer_missing_code": replay_metrics.get("unreplayable_proposer_missing_code", 0),
         "proposer_budget_spent": _collect_proposer_spend(records),
     }
 
     reports_dir = Path("reports") / run_key
     reports_dir.mkdir(parents=True, exist_ok=True)
     summary_file = reports_dir / "daily_summary.json"
+    replay_file = reports_dir / "replay_metrics.json"
     summary_file.write_text(json.dumps(summary, ensure_ascii=True, indent=2), encoding="utf-8")
+    replay_file.write_text(json.dumps(replay_metrics, ensure_ascii=True, indent=2), encoding="utf-8")
 
     return {
         "run_key": run_key,
@@ -336,7 +368,28 @@ def _run_mode(
         "records": records,
         "summary": summary,
         "summary_file": summary_file,
+        "replay_metrics": replay_metrics,
+        "replay_file": replay_file,
     }
+
+
+def _ab_guardrails(config: dict[str, Any]) -> dict[str, Any]:
+    payload = config.get("ab_guardrails")
+    if not isinstance(payload, dict):
+        payload = {}
+    return {
+        "min_solve_rate_gain": float(payload.get("min_solve_rate_gain", 0.0)),
+        "max_timeout_increase": float(payload.get("max_timeout_increase", 0.01)),
+        "max_flaky_increase": int(payload.get("max_flaky_increase", 0)),
+        "auto_disable_proposer_on_guardrail_violation": bool(
+            payload.get("auto_disable_proposer_on_guardrail_violation", True)
+        ),
+    }
+
+
+def _write_json(path: Path, payload: dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(payload, ensure_ascii=True, indent=2), encoding="utf-8")
 
 
 def main() -> int:
@@ -350,7 +403,8 @@ def main() -> int:
     max_total_seconds = float(config.get("max_total_seconds", 90))
     entries = _build_entries(config=config, seed=seed)
 
-    proposer_policy = load_proposer_policy(args.proposer_policy)
+    proposer_policy_single = load_proposer_policy(args.proposer_policy)
+    proposer_policy_b = load_proposer_policy(args.proposer_policy_b or args.proposer_policy)
 
     if args.ab:
         result_a = _run_mode(
@@ -362,7 +416,7 @@ def main() -> int:
             max_tasks=max_tasks,
             max_attempts=max_attempts,
             max_total_seconds=max_total_seconds,
-            proposer_policy=replace(proposer_policy, enabled=False),
+            proposer_policy=replace(proposer_policy_b, enabled=False),
         )
         result_b = _run_mode(
             day=day,
@@ -373,18 +427,72 @@ def main() -> int:
             max_tasks=max_tasks,
             max_attempts=max_attempts,
             max_total_seconds=max_total_seconds,
-            proposer_policy=replace(proposer_policy, enabled=True),
+            proposer_policy=replace(proposer_policy_b, enabled=True),
         )
+
+        guardrails = _ab_guardrails(config)
+        ab_payload = compare_ab(
+            summary_a=result_a["summary"],
+            summary_b=result_b["summary"],
+            min_solve_rate_gain=guardrails["min_solve_rate_gain"],
+            max_timeout_increase=guardrails["max_timeout_increase"],
+            max_flaky_increase=guardrails["max_flaky_increase"],
+        )
+
+        reports_day_dir = Path("reports") / day
+        reports_day_dir.mkdir(parents=True, exist_ok=True)
+        summary_a_path = reports_day_dir / "daily_summary_A.json"
+        summary_b_path = reports_day_dir / "daily_summary_B.json"
+        replay_a_path = reports_day_dir / "replay_metrics_A.json"
+        replay_b_path = reports_day_dir / "replay_metrics_B.json"
+        ab_json_path = reports_day_dir / "ab_compare.json"
+        ab_md_path = reports_day_dir / "ab_compare.md"
+
+        _write_json(summary_a_path, result_a["summary"])
+        _write_json(summary_b_path, result_b["summary"])
+        _write_json(replay_a_path, result_a["replay_metrics"])
+        _write_json(replay_b_path, result_b["replay_metrics"])
+        _write_json(ab_json_path, ab_payload)
+        ab_md_path.write_text(render_ab_markdown(ab_payload), encoding="utf-8")
+        combined_daily_summary = {
+            "generated_at_utc": datetime.now(timezone.utc).isoformat(),
+            "date": day,
+            "mode": "ab",
+            "summary_A": result_a["summary"],
+            "summary_B": result_b["summary"],
+            "ab_compare": ab_payload,
+            "signature_coverage_delta": float(ab_payload.get("signature_coverage_delta", 0.0)),
+            "top_uncovered_delta": dict(ab_payload.get("top_uncovered_delta", {})),
+            "attempts_saved_by_patchers_delta": int(ab_payload.get("attempts_saved_by_patchers_delta", 0)),
+            "proposer_calls": int(ab_payload.get("cost", {}).get("proposer_calls", 0)),
+            "proposer_seconds": float(ab_payload.get("cost", {}).get("proposer_seconds", 0.0)),
+            "solve_gain_per_call": float(ab_payload.get("cost", {}).get("solve_gain_per_call", 0.0)),
+        }
+        _write_json(reports_day_dir / "daily_summary.json", combined_daily_summary)
+
+        for key, value in {
+            "summary_A": str(summary_a_path),
+            "summary_B": str(summary_b_path),
+            "daily_summary": str(reports_day_dir / "daily_summary.json"),
+            "replay_A": str(replay_a_path),
+            "replay_B": str(replay_b_path),
+            "ab_compare_json": str(ab_json_path),
+            "ab_compare_md": str(ab_md_path),
+        }.items():
+            print(f"{key}={value}")
 
         active_log = Path("logs") / "agent_runs.jsonl"
         active_log.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(result_b["run_pack"]["log_file"], active_log)
+        use_a = guardrails["auto_disable_proposer_on_guardrail_violation"] and not bool(
+            ab_payload.get("decision", {}).get("enable_proposer", False)
+        )
+        selected = result_a if use_a else result_b
+        shutil.copyfile(selected["run_pack"]["log_file"], active_log)
 
         print(f"run_pack_log_A={result_a['run_pack']['log_file']}")
         print(f"run_pack_log_B={result_b['run_pack']['log_file']}")
-        print(f"daily_summary_A={result_a['summary_file']}")
-        print(f"daily_summary_B={result_b['summary_file']}")
         print(f"active_log={active_log}")
+        print(f"active_mode={'A' if use_a else 'B'}")
         print(f"executed_tasks_A={result_a['summary']['executed_tasks']}")
         print(f"executed_tasks_B={result_b['summary']['executed_tasks']}")
         return 0
@@ -398,7 +506,7 @@ def main() -> int:
         max_tasks=max_tasks,
         max_attempts=max_attempts,
         max_total_seconds=max_total_seconds,
-        proposer_policy=proposer_policy,
+        proposer_policy=proposer_policy_single,
     )
 
     active_log = Path("logs") / "agent_runs.jsonl"
@@ -408,6 +516,7 @@ def main() -> int:
     print(f"run_pack_log={result['run_pack']['log_file']}")
     print(f"reports_day_dir={Path('reports') / day}")
     print(f"daily_summary={result['summary_file']}")
+    print(f"daily_replay_metrics={result['replay_file']}")
     print(f"active_log={active_log}")
     print(f"executed_tasks={result['summary']['executed_tasks']}")
     return 0

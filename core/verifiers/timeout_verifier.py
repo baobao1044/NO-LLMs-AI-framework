@@ -1,22 +1,22 @@
 from __future__ import annotations
 
 import multiprocessing as mp
-import queue
 from pathlib import Path
 
 from .base import VerificationResult
 from .function_verifier import FunctionVerifier
 
 
-def _worker(queue_out: mp.Queue, payload: dict, source_path: str) -> None:
+def _worker(conn: mp.connection.Connection, payload: dict, source_path: str) -> None:
     verifier = FunctionVerifier.from_task_payload(payload=payload)
     result = verifier.verify(Path(source_path))
-    queue_out.put(result)
+    conn.send(result)
+    conn.close()
 
 
 class TimeoutVerifier:
     verifier_name = "timeout_verifier"
-    verifier_version = "1.0.0"
+    verifier_version = "1.1.0"
 
     def __init__(self, unit_verifier: FunctionVerifier, timeout_seconds: float = 1.0) -> None:
         self.unit_verifier = unit_verifier
@@ -24,9 +24,10 @@ class TimeoutVerifier:
 
     def verify(self, source_file: Path) -> VerificationResult:
         payload, _ = self.unit_verifier.task_payload_snapshot()
-        out_queue: mp.Queue = mp.Queue()
-        process = mp.Process(target=_worker, args=(out_queue, payload, str(source_file)))
+        parent_conn, child_conn = mp.Pipe(duplex=False)
+        process = mp.Process(target=_worker, args=(child_conn, payload, str(source_file)))
         process.start()
+        child_conn.close()
         process.join(timeout=self.timeout_seconds)
 
         if process.is_alive():
@@ -42,9 +43,8 @@ class TimeoutVerifier:
                 verifier_stage_failed="timeout",
             )
 
-        try:
-            result = out_queue.get_nowait()
-        except queue.Empty:
+        if not parent_conn.poll(timeout=0):
+            parent_conn.close()
             return VerificationResult(
                 passed=False,
                 error="RuntimeError: timeout worker returned no result",
@@ -54,6 +54,8 @@ class TimeoutVerifier:
                 verifier_version=self.verifier_version,
                 verifier_stage_failed="unit_test",
             )
+        result = parent_conn.recv()
+        parent_conn.close()
 
         if not isinstance(result, VerificationResult):
             return VerificationResult(

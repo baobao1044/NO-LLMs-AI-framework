@@ -44,6 +44,33 @@ class RunPackCreationTests(unittest.TestCase):
             self.assertEqual(payload["date"], "20260210")
             self.assertEqual(payload["seed"], 123)
 
+    def test_create_run_pack_resets_log_by_default(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            root = Path(tmp_dir)
+            script = Path(__file__).resolve().parents[1] / "tools" / "create_run_pack.py"
+
+            first = subprocess.run(
+                [sys.executable, str(script), "--date", "20260210"],
+                cwd=root,
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertEqual(first.returncode, 0)
+
+            log_file = root / "runs" / "20260210" / "agent_runs.jsonl"
+            log_file.write_text('{"event":"old"}\n', encoding="utf-8")
+
+            second = subprocess.run(
+                [sys.executable, str(script), "--date", "20260210"],
+                cwd=root,
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertEqual(second.returncode, 0)
+            self.assertEqual(log_file.read_text(encoding="utf-8"), "")
+
 
 if __name__ == "__main__":
     unittest.main()

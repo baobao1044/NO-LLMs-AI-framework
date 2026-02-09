@@ -14,7 +14,9 @@ from .base import ProposalContext, ProposalResult, Proposer
 @dataclass(frozen=True)
 class CodexProposerConfig:
     command_env_var: str = "CODEX_PROPOSER_COMMAND"
-    timeout_seconds: float = 2.0
+    timeout_seconds: float = 25.0
+    max_output_chars: int = 20000
+    max_stderr_chars: int = 800
 
 
 class CodexProposer(Proposer):
@@ -28,6 +30,7 @@ class CodexProposer(Proposer):
         if not command:
             return None
 
+        # Retry is intentionally 0 for deterministic behavior.
         try:
             proc = subprocess.run(
                 shlex.split(command),
@@ -40,10 +43,15 @@ class CodexProposer(Proposer):
         except (subprocess.TimeoutExpired, ValueError, OSError):
             return None
 
+        stderr = self._truncate_text(proc.stderr or "", self.config.max_stderr_chars)
+        if stderr:
+            print(f"proposer_stderr={stderr}")
+
         if proc.returncode != 0:
             return None
 
-        proposed_code = (proc.stdout or "").strip()
+        proposed_code = self._extract_code(proc.stdout or "")
+        proposed_code = self._truncate_text(proposed_code, self.config.max_output_chars).strip()
         if not proposed_code:
             return None
 
@@ -66,3 +74,26 @@ class CodexProposer(Proposer):
         if len(summary) <= max_len:
             return summary
         return summary[: max_len - 3] + "..."
+
+    def _extract_code(self, text: str) -> str:
+        stripped = text.strip()
+        if "```" not in stripped:
+            return stripped
+
+        parts = stripped.split("```")
+        if len(parts) < 3:
+            return stripped
+
+        fenced = parts[1]
+        if "\n" in fenced:
+            first_line, rest = fenced.split("\n", 1)
+            language_marker = first_line.strip().lower()
+            if language_marker in {"python", "py", "typescript", "ts", "javascript", "js"}:
+                return rest.strip()
+        return fenced.strip()
+
+    def _truncate_text(self, text: str, max_chars: int) -> str:
+        value = text.strip()
+        if len(value) <= max_chars:
+            return value
+        return value[: max_chars - 14] + "...[truncated]"

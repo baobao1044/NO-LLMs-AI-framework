@@ -1,4 +1,4 @@
-.PHONY: test replay regress mine gen-tasks gen-ts-tasks backlog select-backlog quality refresh daily merge-logs dedup-report
+.PHONY: test replay regress mine gen-tasks gen-ts-tasks backlog select-backlog quality refresh daily merge-logs dedup-report ci changelog
 
 test:
 	python3 -m unittest discover -s tests -p "test_*.py"
@@ -61,3 +61,9 @@ daily:
 	$(MAKE) regress; \
 	python3 tools/replay.py logs/agent_runs.jsonl --json-out reports/$$DAY/replay_metrics.json; \
 	python3 tools/build_daily_summary.py --before reports/metrics_before_refresh.json --after reports/metrics_after_refresh.json --out reports/$$DAY/daily_summary.json
+
+ci:
+	python3 tools/ci_gate.py
+
+changelog:
+	python3 tools/build_changelog.py

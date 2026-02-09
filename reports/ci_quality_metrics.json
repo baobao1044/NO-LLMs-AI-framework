@@ -1,0 +1,25 @@
+{
+  "generated_at_utc": "2026-02-09T06:15:43.853485+00:00",
+  "source_log": "logs/agent_runs.jsonl",
+  "records": 2,
+  "runs": 1,
+  "overall_pass_rate": 1.0,
+  "pass_rate_by_language": {
+    "py": 1.0
+  },
+  "timeout_rate": 0.0,
+  "flaky_groups_count": 0,
+  "signature_coverage": 0.0,
+  "signature_coverage_by_language": {
+    "py": 0.0
+  },
+  "top_uncovered_signatures": [
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(1, 2), expected=3, actual=-1",
+      "count": 1
+    }
+  ],
+  "patcher_activity_by_id": {},
+  "patcher_success_rate_by_id": {}
+}

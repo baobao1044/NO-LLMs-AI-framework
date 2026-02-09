@@ -1,0 +1,6 @@
+{
+  "baseline_update_requires_flag": true,
+  "max_pass_rate_drop_allowed": 0.0,
+  "max_replay_mismatch_allowed": 0,
+  "max_env_fingerprint_mismatch_allowed": 0
+}

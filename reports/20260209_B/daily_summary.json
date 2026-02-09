@@ -1,0 +1,39 @@
+{
+  "generated_at_utc": "2026-02-09T06:16:05.917711+00:00",
+  "date": "20260209",
+  "mode": "B",
+  "seed": 123,
+  "executed_tasks": 1,
+  "proposer_enabled": true,
+  "budget": {
+    "max_tasks_per_day": 1,
+    "max_attempts_per_task": 2,
+    "max_total_seconds": 30.0,
+    "elapsed_seconds": 0.03535
+  },
+  "run_count": 1,
+  "overall_pass_rate": 1.0,
+  "pass_rate_by_language": {
+    "py": 1.0
+  },
+  "mean_attempts": 2.0,
+  "signature_coverage": 0.0,
+  "top_uncovered_signatures": [
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(1, 2), expected=3, actual=-1",
+      "count": 1
+    }
+  ],
+  "timeout_rate": 0.0,
+  "flaky_groups_count": 0,
+  "replay_match": 2,
+  "replay_eligible": 2,
+  "replay_match_rate": 100.0,
+  "env_fingerprint_mismatch_count": 0,
+  "proposer_budget_spent": {
+    "calls": 0,
+    "seconds": 0.0,
+    "calls_by_proposer": {}
+  }
+}

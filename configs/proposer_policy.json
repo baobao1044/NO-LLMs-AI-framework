@@ -1,0 +1,13 @@
+{
+  "enabled": false,
+  "allowed_languages": [
+    "ts",
+    "py"
+  ],
+  "max_calls_per_task": 1,
+  "max_calls_per_day": 20,
+  "max_total_seconds_per_day": 30.0,
+  "only_for_uncovered_signatures": true,
+  "uncovered_source": "configs/uncovered_signatures.json",
+  "timeout_seconds": 2.0
+}

@@ -1,0 +1,50 @@
+{
+  "generated_at_utc": "2026-02-09T06:16:11.957837+00:00",
+  "solve_rate": {
+    "before": 1.0,
+    "after": 1.0,
+    "delta": 0.0
+  },
+  "pass_rate_by_language": {
+    "py": {
+      "before": 1.0,
+      "after": 1.0,
+      "delta": 0.0
+    }
+  },
+  "signature_coverage": {
+    "before": 0.0,
+    "after": 0.0,
+    "delta": 0.0
+  },
+  "top_uncovered_delta": {
+    "added": [],
+    "removed": [],
+    "added_count": 0,
+    "removed_count": 0
+  },
+  "timeout_rate": {
+    "before": 0.0,
+    "after": 0.0,
+    "delta": 0.0
+  },
+  "flaky_groups_count": {
+    "before": 0,
+    "after": 0,
+    "delta": 0
+  },
+  "cost": {
+    "proposer_calls": 0,
+    "proposer_seconds": 0.0,
+    "calls_by_proposer": {}
+  },
+  "decision": {
+    "enable_proposer": true,
+    "criteria": {
+      "min_solve_rate_gain": 0.0,
+      "max_timeout_increase": 0.0,
+      "max_flaky_increase": 0
+    },
+    "reason": "enable proposer"
+  }
+}

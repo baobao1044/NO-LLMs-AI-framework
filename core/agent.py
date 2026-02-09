@@ -9,9 +9,10 @@ from uuid import uuid4
 from .delta import compute_delta
 from .env_fingerprint import get_env_fingerprint
 from .error_classifier import classify_failure
-from .hashing import stable_hash, text_hash
+from .hashing import text_hash, stable_hash
 from .logger import JsonlLogger
 from .patchers import PatchContext, apply_first
+from .proposers import ProposalContext, ProposalExecution, ProposerRuntime, get_default_proposer_runtime
 from .task import CodeTask
 from .verifiers.base import VerificationResult, Verifier
 
@@ -26,6 +27,9 @@ class AgentRunResult:
 
 class AgentLoop:
     """MVP loop: execute -> verify -> log -> done/fix."""
+
+    def __init__(self, proposer_runtime: ProposerRuntime | None = None) -> None:
+        self.proposer_runtime = proposer_runtime or get_default_proposer_runtime()
 
     def run(
         self,
@@ -102,6 +106,12 @@ class AgentLoop:
                     changed_lines_count=0,
                     changed_line_numbers=[],
                     delta_summary=None,
+                    proposer_used=False,
+                    proposer_id=None,
+                    proposal_hash=None,
+                    proposer_latency_ms=None,
+                    proposer_budget_spent=None,
+                    proposer_input_hash=None,
                 )
             )
 
@@ -112,6 +122,9 @@ class AgentLoop:
                     attempts_used=attempt_index,
                     last_error=None,
                 )
+
+            base_code_for_proposer = candidate_code
+            base_verification_for_proposer = verification
 
             if patch_result is not None:
                 delta_info = compute_delta(before=candidate_code, after=patch_result.patched_code)
@@ -143,6 +156,12 @@ class AgentLoop:
                         changed_lines_count=delta_info.changed_lines_count,
                         changed_line_numbers=delta_info.changed_line_numbers,
                         delta_summary=self._short(delta_info.delta_summary),
+                        proposer_used=False,
+                        proposer_id=None,
+                        proposal_hash=None,
+                        proposer_latency_ms=None,
+                        proposer_budget_spent=None,
+                        proposer_input_hash=None,
                     )
                 )
                 if patch_verification.passed:
@@ -152,10 +171,66 @@ class AgentLoop:
                         attempts_used=attempt_index,
                         last_error=None,
                     )
+                base_code_for_proposer = patch_result.patched_code
+                base_verification_for_proposer = patch_verification
                 last_error = patch_verification.error
-                continue
+            else:
+                last_error = verification.error
 
-            last_error = verification.error
+            proposal_execution = self._maybe_propose(
+                task=task,
+                task_payload=task_payload,
+                payload_is_lossy=payload_is_lossy,
+                code=base_code_for_proposer,
+                verification=base_verification_for_proposer,
+            )
+            if proposal_execution.result is not None:
+                proposed_code = proposal_execution.result.proposed_code
+                proposal_delta = compute_delta(before=base_code_for_proposer, after=proposed_code)
+                proposal_verification, proposal_elapsed_ms = self._execute_and_verify(
+                    target_file=task.target_file,
+                    code=proposed_code,
+                    verifier=verifier,
+                )
+                logger.log(
+                    self._build_event(
+                        run_id=run_id,
+                        task=task,
+                        attempt_index=attempt_index,
+                        task_hash=task_hash,
+                        task_payload=task_payload,
+                        payload_is_lossy=payload_is_lossy,
+                        env_fingerprint=env_fingerprint,
+                        verifier=verifier,
+                        language=task.language,
+                        verifier_config=verifier_config,
+                        code=proposed_code,
+                        verification=proposal_verification,
+                        elapsed_ms=proposal_elapsed_ms,
+                        patcher_attempted=False,
+                        patcher_id=None,
+                        patch_applied=False,
+                        patch_summary=None,
+                        parent_artifact_hash=text_hash(base_code_for_proposer),
+                        changed_lines_count=proposal_delta.changed_lines_count,
+                        changed_line_numbers=proposal_delta.changed_line_numbers,
+                        delta_summary=self._short(proposal_delta.delta_summary),
+                        proposer_used=True,
+                        proposer_id=proposal_execution.proposer_id,
+                        proposal_hash=proposal_execution.proposal_hash,
+                        proposer_latency_ms=proposal_execution.proposer_latency_ms,
+                        proposer_budget_spent=proposal_execution.proposer_budget_spent,
+                        proposer_input_hash=proposal_execution.proposer_input_hash,
+                    )
+                )
+                if proposal_verification.passed:
+                    return AgentRunResult(
+                        run_id=run_id,
+                        done=True,
+                        attempts_used=attempt_index,
+                        last_error=None,
+                    )
+                last_error = proposal_verification.error
 
         return AgentRunResult(
             run_id=run_id,
@@ -163,6 +238,46 @@ class AgentLoop:
             attempts_used=len(task.attempts),
             last_error=last_error,
         )
+
+    def _maybe_propose(
+        self,
+        *,
+        task: CodeTask,
+        task_payload: dict[str, Any],
+        payload_is_lossy: bool,
+        code: str,
+        verification: VerificationResult,
+    ) -> ProposalExecution:
+        if verification.passed:
+            return ProposalExecution(
+                result=None,
+                proposer_used=False,
+                proposer_id=None,
+                proposal_hash=None,
+                proposer_latency_ms=None,
+                proposer_budget_spent=None,
+                proposer_input_hash=None,
+            )
+
+        function_name = task_payload.get("function_name") if isinstance(task_payload.get("function_name"), str) else None
+        signature = task_payload.get("signature") if isinstance(task_payload.get("signature"), str) else None
+        classified_failure = classify_failure(verification, language=task.language)
+
+        proposal_ctx = ProposalContext(
+            language=task.language,
+            task_id=task.task_id,
+            prompt=task.prompt,
+            signature=signature,
+            function_name=function_name,
+            code=code,
+            failure_type=classified_failure.failure_type,
+            error_signature=classified_failure.error_signature,
+            error_message=self._short(verification.error_message or verification.error),
+            verifier_stage_failed=verification.verifier_stage_failed,
+            task_payload=task_payload,
+            payload_is_lossy=payload_is_lossy,
+        )
+        return self.proposer_runtime.propose(proposal_ctx)
 
     def _execute_and_verify(
         self,
@@ -200,10 +315,16 @@ class AgentLoop:
         changed_lines_count: int,
         changed_line_numbers: list[int],
         delta_summary: str | None,
+        proposer_used: bool,
+        proposer_id: str | None,
+        proposal_hash: str | None,
+        proposer_latency_ms: int | None,
+        proposer_budget_spent: dict[str, Any] | None,
+        proposer_input_hash: str | None,
     ) -> dict[str, Any]:
         classified = classify_failure(verification, language=language)
         return {
-            "schema_version": "2.4.0",
+            "schema_version": "2.5.0",
             "run_id": run_id,
             "timestamp_utc": datetime.now(timezone.utc).isoformat(),
             "attempt_index": attempt_index,
@@ -235,6 +356,12 @@ class AgentLoop:
             "changed_lines_count": changed_lines_count,
             "changed_line_numbers": changed_line_numbers,
             "delta_summary": delta_summary,
+            "proposer_used": proposer_used,
+            "proposer_id": proposer_id,
+            "proposal_hash": proposal_hash,
+            "proposer_latency_ms": proposer_latency_ms,
+            "proposer_budget_spent": proposer_budget_spent,
+            "proposer_input_hash": proposer_input_hash,
             "elapsed_ms": elapsed_ms,
         }
 

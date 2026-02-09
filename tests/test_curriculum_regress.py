@@ -148,14 +148,14 @@ class CurriculumAndRegressionTests(unittest.TestCase):
                     str(golden_ok),
                     "--baseline",
                     str(baseline),
-                    "--write-baseline",
+                    "--update-baseline",
                 ],
                 capture_output=True,
                 text=True,
                 check=False,
             )
             self.assertEqual(init_proc.returncode, 0)
-            self.assertIn("baseline_written=", init_proc.stdout)
+            self.assertIn("baseline_update=enabled", init_proc.stdout)
 
             pass_proc = subprocess.run(
                 [
@@ -223,7 +223,7 @@ class CurriculumAndRegressionTests(unittest.TestCase):
                     str(generated),
                     "--baseline",
                     str(baseline),
-                    "--write-baseline",
+                    "--update-baseline",
                 ],
                 capture_output=True,
                 text=True,
@@ -288,7 +288,7 @@ class CurriculumAndRegressionTests(unittest.TestCase):
                     str(golden_ts),
                     "--baseline",
                     str(baseline),
-                    "--write-baseline",
+                    "--update-baseline",
                 ],
                 capture_output=True,
                 text=True,
@@ -381,7 +381,7 @@ class CurriculumAndRegressionTests(unittest.TestCase):
                     str(baseline_log),
                     "--baseline",
                     str(baseline_file),
-                    "--write-baseline",
+                    "--update-baseline",
                 ],
                 capture_output=True,
                 text=True,

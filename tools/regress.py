@@ -40,9 +40,14 @@ def parse_args() -> argparse.Namespace:
         help="Baseline metrics JSON file.",
     )
     parser.add_argument(
+        "--update-baseline",
+        action="store_true",
+        help="Write baseline from current run (requires explicit flag).",
+    )
+    parser.add_argument(
         "--write-baseline",
         action="store_true",
-        help="Write baseline from current run instead of checking.",
+        help=argparse.SUPPRESS,
     )
     parser.add_argument(
         "--pass-rate-drop",
@@ -394,8 +399,36 @@ def _compare(
     return failures
 
 
+def _baseline_diff_summary(previous: dict[str, Any], current: dict[str, Any]) -> dict[str, Any]:
+    previous_pass = float(previous.get("pass_rate", 0.0))
+    current_pass = float(current.get("pass_rate", 0.0))
+    previous_attempts = float(previous.get("mean_attempts", 0.0))
+    current_attempts = float(current.get("mean_attempts", 0.0))
+
+    return {
+        "pass_rate": {
+            "before": round(previous_pass, 4),
+            "after": round(current_pass, 4),
+            "delta": round(current_pass - previous_pass, 4),
+        },
+        "mean_attempts": {
+            "before": round(previous_attempts, 4),
+            "after": round(current_attempts, 4),
+            "delta": round(current_attempts - previous_attempts, 4),
+        },
+        "failure_type_counts_before": previous.get("failure_type_counts", {}),
+        "failure_type_counts_after": current.get("failure_type_counts", {}),
+        "pass_rate_by_language_before": previous.get("pass_rate_by_language", {}),
+        "pass_rate_by_language_after": current.get("pass_rate_by_language", {}),
+    }
+
+
 def main() -> int:
     args = parse_args()
+    if args.write_baseline and not args.update_baseline:
+        print("warning=--write-baseline is deprecated, use --update-baseline")
+        args.update_baseline = True
+
     flaky_quarantine = _load_flaky_quarantine(args.flaky_quarantine)
     if args.from_log is not None:
         metrics = _run_from_log(args.from_log, flaky_quarantine=flaky_quarantine)
@@ -409,10 +442,16 @@ def main() -> int:
     print(f"current mean_attempts_by_language={json.dumps(metrics['mean_attempts_by_language'], sort_keys=True)}")
     print(f"current failure_type_counts={json.dumps(metrics['failure_type_counts'], sort_keys=True)}")
 
-    if args.write_baseline:
+    if args.update_baseline:
+        previous_baseline: dict[str, Any] = {}
+        if args.baseline.exists():
+            previous_baseline = _load_json(args.baseline)
+        diff_summary = _baseline_diff_summary(previous_baseline, metrics)
         args.baseline.parent.mkdir(parents=True, exist_ok=True)
         args.baseline.write_text(json.dumps(metrics, ensure_ascii=True, indent=2), encoding="utf-8")
-        print(f"baseline_written={args.baseline}")
+        print("baseline_update=enabled")
+        print(f"baseline_file={args.baseline}")
+        print(f"baseline_diff_summary={json.dumps(diff_summary, ensure_ascii=True, sort_keys=True)}")
         return 0
 
     baseline = _load_json(args.baseline)

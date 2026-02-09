@@ -1,0 +1,69 @@
+{
+  "tasks": [
+    {
+      "task_id": "golden_add_v1",
+      "prompt": "Write add(a, b) and return sum.",
+      "attempts": [
+        "def add(a, b):\n    return a - b\n",
+        "def add(a, b):\n    return a + b\n"
+      ],
+      "verifier": {
+        "function_name": "add",
+        "cases": [
+          {
+            "args": [
+              1,
+              2
+            ],
+            "expected": 3
+          },
+          {
+            "args": [
+              -1,
+              5
+            ],
+            "expected": 4
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "golden_mul_v1",
+      "prompt": "Write mul(a, b) and return product.",
+      "attempts": [
+        "def mul(a, b):\n    return a * b\n"
+      ],
+      "verifier": {
+        "function_name": "mul",
+        "cases": [
+          {
+            "args": [
+              3,
+              4
+            ],
+            "expected": 12
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "golden_inc_v1",
+      "prompt": "Write inc(x) and return x + 1.",
+      "attempts": [
+        "def inc(x)\n    return x + 1\n",
+        "def inc(x):\n    return x + 1\n"
+      ],
+      "verifier": {
+        "function_name": "inc",
+        "cases": [
+          {
+            "args": [
+              9
+            ],
+            "expected": 10
+          }
+        ]
+      }
+    }
+  ]
+}

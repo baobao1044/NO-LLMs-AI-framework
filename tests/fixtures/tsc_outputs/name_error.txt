@@ -1,0 +1,1 @@
+/tmp/work/src/solution.ts(1,10): error TS2304: Cannot find name 'missingVar'.

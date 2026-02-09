@@ -1,0 +1,12 @@
+{
+  "created_at_utc": "2026-02-09T05:37:32.005650+00:00",
+  "date": "20260209",
+  "seed": 20260332,
+  "config": "configs/daily_config.json",
+  "policy": "daily",
+  "budget": {
+    "max_tasks_per_day": 12,
+    "max_attempts_per_task": 2,
+    "max_total_seconds": 90.0
+  }
+}

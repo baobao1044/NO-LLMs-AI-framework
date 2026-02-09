@@ -1,0 +1,80 @@
+{
+  "tasks": [
+    {
+      "task_id": "ts_add_v1",
+      "language": "ts",
+      "prompt": "Write add(a, b) returning a + b.",
+      "target_file": "src/solution.ts",
+      "function_name": "add",
+      "signature": "(a: number, b: number) => number",
+      "testcases": [
+        {
+          "inputs": [2, 3],
+          "expected": 5
+        },
+        {
+          "inputs": [-1, 7],
+          "expected": 6
+        }
+      ],
+      "difficulty": "easy",
+      "tags": ["ts", "numeric", "add"],
+      "attempts": [
+        "export function add(a: number, b: number): number {\n  return a - b;\n}\n",
+        "export function add(a: number, b: number): number {\n  return a + b;\n}\n"
+      ]
+    },
+    {
+      "task_id": "ts_clamp_v1",
+      "language": "ts",
+      "prompt": "Write clamp(x, lo, hi) to bound x into [lo, hi].",
+      "target_file": "src/solution.ts",
+      "function_name": "clamp",
+      "signature": "(x: number, lo: number, hi: number) => number",
+      "testcases": [
+        {
+          "inputs": [-5, 0, 10],
+          "expected": 0
+        },
+        {
+          "inputs": [4, 0, 10],
+          "expected": 4
+        },
+        {
+          "inputs": [20, 0, 10],
+          "expected": 10
+        }
+      ],
+      "difficulty": "easy",
+      "tags": ["ts", "numeric", "clamp"],
+      "attempts": [
+        "export function clamp(x: number, lo: number, hi: number): number {\n  return x;\n}\n",
+        "export function clamp(x: number, lo: number, hi: number): number {\n  return Math.max(lo, Math.min(hi, x));\n}\n"
+      ]
+    },
+    {
+      "task_id": "ts_palindrome_v1",
+      "language": "ts",
+      "prompt": "Write isPalindrome(s) returning true when s is palindrome.",
+      "target_file": "src/solution.ts",
+      "function_name": "isPalindrome",
+      "signature": "(s: string) => boolean",
+      "testcases": [
+        {
+          "inputs": ["level"],
+          "expected": true
+        },
+        {
+          "inputs": ["robot"],
+          "expected": false
+        }
+      ],
+      "difficulty": "easy",
+      "tags": ["ts", "string", "palindrome"],
+      "attempts": [
+        "export function isPalindrome(s: string): boolean {\n  return false;\n}\n",
+        "export function isPalindrome(s: string): boolean {\n  return s === s.split(\"\").reverse().join(\"\");\n}\n"
+      ]
+    }
+  ]
+}

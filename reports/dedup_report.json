@@ -1,0 +1,8 @@
+{
+  "source_log": "logs/merged.jsonl",
+  "total_records": 23,
+  "unique_records": 23,
+  "duplicate_records": 0,
+  "duplicate_ratio": 0.0,
+  "top_duplicate_keys": []
+}

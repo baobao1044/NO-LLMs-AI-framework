@@ -1,0 +1,45 @@
+{
+  "generated_at_utc": "2026-02-09T04:40:41.840773+00:00",
+  "run_count": 3,
+  "pass_rate": 100.0,
+  "mean_attempts": 1.3333,
+  "failure_type_counts": {
+    "assertion_fail": 1,
+    "syntax_error": 1
+  },
+  "run_count_by_language": {
+    "py": 3
+  },
+  "pass_rate_by_language": {
+    "py": 100.0
+  },
+  "mean_attempts_by_language": {
+    "py": 1.3333
+  },
+  "failure_type_counts_by_language": {
+    "py": {
+      "assertion_fail": 1,
+      "syntax_error": 1
+    }
+  },
+  "tasks": [
+    {
+      "task_id": "golden_add_v1",
+      "language": "py",
+      "done": true,
+      "attempts_used": 2
+    },
+    {
+      "task_id": "golden_mul_v1",
+      "language": "py",
+      "done": true,
+      "attempts_used": 1
+    },
+    {
+      "task_id": "golden_inc_v1",
+      "language": "py",
+      "done": true,
+      "attempts_used": 1
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "configs/patch_backlog_schema.json",
+  "title": "PatchBacklog",
+  "type": "object",
+  "required": [
+    "generated_at_utc",
+    "source_log",
+    "language_filter",
+    "top_k",
+    "min_count",
+    "items"
+  ],
+  "properties": {
+    "generated_at_utc": {"type": "string"},
+    "source_log": {"type": "string"},
+    "language_filter": {"enum": ["all", "py", "ts"]},
+    "top_k": {"type": "integer", "minimum": 1},
+    "min_count": {"type": "integer", "minimum": 1},
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "language",
+          "failure_type",
+          "error_signature",
+          "verifier_stage_failed",
+          "count_total",
+          "solve_rate",
+          "patch_hit_rate",
+          "patch_success_rate",
+          "suggested_category",
+          "priority_score",
+          "examples"
+        ],
+        "properties": {
+          "language": {"enum": ["py", "ts"]},
+          "failure_type": {"type": "string"},
+          "error_signature": {"type": "string"},
+          "verifier_stage_failed": {"type": "string"},
+          "count_total": {"type": "integer", "minimum": 0},
+          "solve_rate": {"type": "number", "minimum": 0, "maximum": 1},
+          "patch_hit_rate": {"type": "number", "minimum": 0, "maximum": 1},
+          "patch_success_rate": {"type": "number", "minimum": 0, "maximum": 1},
+          "suggested_category": {"type": "string"},
+          "priority_score": {"type": "number", "minimum": 0},
+          "examples": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "task_id",
+                "prompt",
+                "code",
+                "error_message",
+                "artifact_hash",
+                "parent_artifact_hash"
+              ],
+              "properties": {
+                "task_id": {"type": ["string", "null"]},
+                "prompt": {"type": "string"},
+                "code": {"type": "string"},
+                "error_message": {"type": "string"},
+                "artifact_hash": {"type": ["string", "null"]},
+                "parent_artifact_hash": {"type": ["string", "null"]}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

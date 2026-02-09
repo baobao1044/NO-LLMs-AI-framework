@@ -1,0 +1,23 @@
+{
+  "seed_base": 123,
+  "seed_daily_mode": "date-derived",
+  "generated_task_count": 8,
+  "max_tasks_per_day": 12,
+  "max_attempts_per_task": 2,
+  "max_total_seconds": 90,
+  "languages_enabled": ["ts", "py"],
+  "generated_tag": "generated",
+  "ts_templates": [
+    "ts_union_narrowing",
+    "ts_optional_chaining",
+    "ts_generic_identity",
+    "ts_record_shape",
+    "ts_null_undefined_strict"
+  ],
+  "py_templates": [
+    "add",
+    "sub",
+    "mul",
+    "clamp"
+  ]
+}

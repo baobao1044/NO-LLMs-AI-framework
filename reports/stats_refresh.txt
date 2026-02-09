@@ -1,0 +1,70 @@
+records=23
+runs=12
+pass_rate_by_language:
+  language=py pass_rate=100.00% (7/7)
+  language=ts pass_rate=100.00% (5/5)
+pass_rate_by_task:
+  task_id=gen_add_03cec5300a81 task_hash=f494ce13cc54f6894fd6fb7f0f297214f1cb511cd99113f7b72c405e25b692ac pass_rate=100.00% (1/1)
+  task_id=gen_clamp_737a7ebdfb85 task_hash=701705f1eab224b4ffa22dc1ad38b09f5e60ed69e6e09cb3ac4b83835a60bff6 pass_rate=100.00% (1/1)
+  task_id=gen_mul_af6931f1b73c task_hash=25a2f5d36dd9c732fb4e6b3e7e3e50e95bd7cade1173b1d26a3fa1c09cab710f pass_rate=100.00% (1/1)
+  task_id=gen_sub_7e77e63d1e7c task_hash=200087a98b830ec430a93637fa956c4313d8e41e0a62333e210ccf8df57925cc pass_rate=100.00% (1/1)
+  task_id=gen_ts_generic_identity_b014a68beeae task_hash=d0f5220138a698632f796ce2e2abc0de980fe3012445a07a82a3f6a2c0bf7637 pass_rate=100.00% (1/1)
+  task_id=gen_ts_optional_chaining_3cbe2172d661 task_hash=b71aa70461e2df3dfd8ea309a3a8a6498b561a7dde1afb468c119b88c93559f9 pass_rate=100.00% (1/1)
+  task_id=gen_ts_record_shape_3299a1d4bcee task_hash=049a4bb0709db168554a53a18c83fa8d540236c5cda77d55ca3f07235b2d2e09 pass_rate=100.00% (1/1)
+  task_id=gen_ts_union_narrowing_a307380e8a3c task_hash=fbfe536e5120e877933be85b728d30a107e08f3e7ffb01e1a921016b5d1b54df pass_rate=100.00% (1/1)
+  task_id=golden_add_v1 task_hash=dbf13c7433259463bccc0affd946c08dc296b86a37bf4c05a37a5ab3de4f2377 pass_rate=100.00% (1/1)
+  task_id=golden_inc_v1 task_hash=7875f03a4f2bb7c6c5ea3c913712fa47a5a0b977731d5340779fd5b701b261f7 pass_rate=100.00% (1/1)
+  task_id=golden_mul_v1 task_hash=cf787266d748ee3b30aa635d9ba9c3af7a6bccbcbd042fb03f46ff63e5206344 pass_rate=100.00% (1/1)
+  task_id=ts_add_v1 task_hash=d96fd69edbcb7a9861205cd0b2ef604b39d577a47dcc61283656867f473432f8 pass_rate=100.00% (1/1)
+attempt_distribution:
+  attempts=1 runs=2
+  attempts=2 runs=10
+median_attempts_per_task:
+  task_id=gen_add_03cec5300a81 task_hash=f494ce13cc54f6894fd6fb7f0f297214f1cb511cd99113f7b72c405e25b692ac median_attempts=2.00
+  task_id=gen_clamp_737a7ebdfb85 task_hash=701705f1eab224b4ffa22dc1ad38b09f5e60ed69e6e09cb3ac4b83835a60bff6 median_attempts=2.00
+  task_id=gen_mul_af6931f1b73c task_hash=25a2f5d36dd9c732fb4e6b3e7e3e50e95bd7cade1173b1d26a3fa1c09cab710f median_attempts=2.00
+  task_id=gen_sub_7e77e63d1e7c task_hash=200087a98b830ec430a93637fa956c4313d8e41e0a62333e210ccf8df57925cc median_attempts=2.00
+  task_id=gen_ts_generic_identity_b014a68beeae task_hash=d0f5220138a698632f796ce2e2abc0de980fe3012445a07a82a3f6a2c0bf7637 median_attempts=2.00
+  task_id=gen_ts_optional_chaining_3cbe2172d661 task_hash=b71aa70461e2df3dfd8ea309a3a8a6498b561a7dde1afb468c119b88c93559f9 median_attempts=2.00
+  task_id=gen_ts_record_shape_3299a1d4bcee task_hash=049a4bb0709db168554a53a18c83fa8d540236c5cda77d55ca3f07235b2d2e09 median_attempts=2.00
+  task_id=gen_ts_union_narrowing_a307380e8a3c task_hash=fbfe536e5120e877933be85b728d30a107e08f3e7ffb01e1a921016b5d1b54df median_attempts=2.00
+  task_id=golden_add_v1 task_hash=dbf13c7433259463bccc0affd946c08dc296b86a37bf4c05a37a5ab3de4f2377 median_attempts=2.00
+  task_id=golden_inc_v1 task_hash=7875f03a4f2bb7c6c5ea3c913712fa47a5a0b977731d5340779fd5b701b261f7 median_attempts=1.00
+  task_id=golden_mul_v1 task_hash=cf787266d748ee3b30aa635d9ba9c3af7a6bccbcbd042fb03f46ff63e5206344 median_attempts=1.00
+  task_id=ts_add_v1 task_hash=d96fd69edbcb7a9861205cd0b2ef604b39d577a47dcc61283656867f473432f8 median_attempts=2.00
+failure_type_breakdown:
+  assertion_fail=7
+  ts_type_error=3
+  syntax_error=1
+verifier_stage_breakdown:
+  unit_test=7
+  tsc=3
+  syntax=1
+top20_error_signature:
+      1  AssertionError:case 1 mismatch: args=(17, 15), expected=32, actual=2
+      1  AssertionError:case 1 mismatch: args=(-7, -4, 9), expected=-4, actual=-7
+      1  AssertionError:case 1 mismatch: args=(11, -11), expected=-121, actual=0
+      1  AssertionError:case 1 mismatch: args=(-20, -3), expected=-17, actual=-23
+      1  AssertionError:case 1 mismatch: args=(1, 2), expected=3, actual=-1
+      1  SyntaxError:expected ':' (golden_inc_v1.py, line 1)
+      1  AssertionError:case 1 mismatch: expected="z" actual=undefined
+      1  TS2322:Type 'string | undefined' is not assignable to type 'string'.
+      1  TS2322:Type 'number' is not assignable to type 'string'.
+      1  TS2322:Type 'string | number' is not assignable to type 'number'.
+      1  AssertionError:case 1 mismatch: expected=5 actual=-1
+signature_coverage=9.09% (1/11)
+top_uncovered_signatures:
+      1  AssertionError:case 1 mismatch: args=(-20, -3), expected=-17, actual=-23
+      1  AssertionError:case 1 mismatch: args=(-7, -4, 9), expected=-4, actual=-7
+      1  AssertionError:case 1 mismatch: args=(1, 2), expected=3, actual=-1
+      1  AssertionError:case 1 mismatch: args=(11, -11), expected=-121, actual=0
+      1  AssertionError:case 1 mismatch: args=(17, 15), expected=32, actual=2
+      1  AssertionError:case 1 mismatch: expected="z" actual=undefined
+      1  AssertionError:case 1 mismatch: expected=5 actual=-1
+      1  TS2322:Type 'number' is not assignable to type 'string'.
+      1  TS2322:Type 'string | number' is not assignable to type 'number'.
+      1  TS2322:Type 'string | undefined' is not assignable to type 'string'.
+patch_success_rate_by_patcher:
+  patcher_id=syntax_fix_patcher success_rate=100.00% (1/1)
+solved_mode_split: via_patchers=1 (8.33%) via_new_attempt=11 (91.67%) unsolved=0
+attempts_saved_by_patchers_approx=1

@@ -1,0 +1,826 @@
+{
+  "seed": 123,
+  "count": 20,
+  "templates": [
+    "ts_union_narrowing",
+    "ts_optional_chaining",
+    "ts_generic_identity",
+    "ts_record_shape",
+    "ts_null_undefined_strict"
+  ],
+  "tag": "generated",
+  "tasks": [
+    {
+      "task_id": "gen_ts_union_narrowing_d91dd7a489dc",
+      "prompt": "Write union_to_number(value) to convert string|number into number.",
+      "target_file": "workspace/gen_ts_union_narrowing_d91dd7a489dc/src/solution.ts",
+      "function_name": "union_to_number",
+      "testcases": [
+        {
+          "inputs": [
+            "16"
+          ],
+          "expected": 16
+        },
+        {
+          "inputs": [
+            5
+          ],
+          "expected": 5
+        }
+      ],
+      "difficulty": "easy",
+      "language": "ts",
+      "signature": "(value: string | number) => number",
+      "constraints": {
+        "json_only": true,
+        "strict": true
+      },
+      "tags": [
+        "ts",
+        "union",
+        "narrowing",
+        "generated"
+      ],
+      "attempts": [
+        "export function union_to_number(value: string | number): number {\n  return value;\n}\n",
+        "export function union_to_number(value: string | number): number {\n  if (typeof value === \"string\") {\n    return Number(value);\n  }\n  return value;\n}\n"
+      ]
+    },
+    {
+      "task_id": "gen_ts_optional_chaining_c8c8cb42d012",
+      "prompt": "Write pick_user_name(input) using optional chaining; return empty string when missing.",
+      "target_file": "workspace/gen_ts_optional_chaining_c8c8cb42d012/src/solution.ts",
+      "function_name": "pick_user_name",
+      "testcases": [
+        {
+          "inputs": [
+            {
+              "user": {
+                "name": "alice"
+              }
+            }
+          ],
+          "expected": "alice"
+        },
+        {
+          "inputs": [
+            {
+              "user": {}
+            }
+          ],
+          "expected": ""
+        },
+        {
+          "inputs": [
+            null
+          ],
+          "expected": ""
+        }
+      ],
+      "difficulty": "medium",
+      "language": "ts",
+      "signature": "(input: { user?: { name?: string } } | null) => string",
+      "constraints": {
+        "json_only": true,
+        "strict": true
+      },
+      "tags": [
+        "ts",
+        "optional_chaining",
+        "null_safety",
+        "generated"
+      ],
+      "attempts": [
+        "export function pick_user_name(input: { user?: { name?: string } } | null): string {\n  return input.user.name;\n}\n",
+        "export function pick_user_name(input: { user?: { name?: string } } | null): string {\n  return input?.user?.name ?? \"\";\n}\n"
+      ]
+    },
+    {
+      "task_id": "gen_ts_generic_identity_31be8ea17adb",
+      "prompt": "Write generic identity(value) preserving input type and value.",
+      "target_file": "workspace/gen_ts_generic_identity_31be8ea17adb/src/solution.ts",
+      "function_name": "identity",
+      "testcases": [
+        {
+          "inputs": [
+            "y"
+          ],
+          "expected": "y"
+        },
+        {
+          "inputs": [
+            9
+          ],
+          "expected": 9
+        }
+      ],
+      "difficulty": "medium",
+      "language": "ts",
+      "signature": "<T>(value: T) => T",
+      "constraints": {
+        "json_only": true,
+        "strict": true
+      },
+      "tags": [
+        "ts",
+        "generic",
+        "generated"
+      ],
+      "attempts": [
+        "export function identity<T>(value: T): T {\n  return undefined as unknown as T;\n}\n",
+        "export function identity<T>(value: T): T {\n  return value;\n}\n"
+      ]
+    },
+    {
+      "task_id": "gen_ts_record_shape_1e595a18f721",
+      "prompt": "Write format_row(item) returning `${id}:${name}` for a typed record.",
+      "target_file": "workspace/gen_ts_record_shape_1e595a18f721/src/solution.ts",
+      "function_name": "format_row",
+      "testcases": [
+        {
+          "inputs": [
+            {
+              "id": 2,
+              "name": "alice"
+            }
+          ],
+          "expected": "2:alice"
+        },
+        {
+          "inputs": [
+            {
+              "id": 0,
+              "name": "n/a"
+            }
+          ],
+          "expected": "0:n/a"
+        }
+      ],
+      "difficulty": "easy",
+      "language": "ts",
+      "signature": "(item: { id: number; name: string }) => string",
+      "constraints": {
+        "json_only": true,
+        "strict": true
+      },
+      "tags": [
+        "ts",
+        "record",
+        "shape",
+        "generated"
+      ],
+      "attempts": [
+        "export function format_row(item: { id: number; name: string }): string {\n  return item.id;\n}\n",
+        "export function format_row(item: { id: number; name: string }): string {\n  return `${item.id}:${item.name}`;\n}\n"
+      ]
+    },
+    {
+      "task_id": "gen_ts_null_undefined_strict_6e729fd88b21",
+      "prompt": "Write normalize_text(value) returning trimmed string or empty for null/undefined.",
+      "target_file": "workspace/gen_ts_null_undefined_strict_6e729fd88b21/src/solution.ts",
+      "function_name": "normalize_text",
+      "testcases": [
+        {
+          "inputs": [
+            "world"
+          ],
+          "expected": "world"
+        },
+        {
+          "inputs": [
+            null
+          ],
+          "expected": ""
+        }
+      ],
+      "difficulty": "medium",
+      "language": "ts",
+      "signature": "(value: string | null | undefined) => string",
+      "constraints": {
+        "json_only": true,
+        "strict": true
+      },
+      "tags": [
+        "ts",
+        "null",
+        "undefined",
+        "strict",
+        "generated"
+      ],
+      "attempts": [
+        "export function normalize_text(value: string | null | undefined): string {\n  return value.trim();\n}\n",
+        "export function normalize_text(value: string | null | undefined): string {\n  return value?.trim() ?? \"\";\n}\n"
+      ]
+    },
+    {
+      "task_id": "gen_ts_union_narrowing_96a5ea885003",
+      "prompt": "Write union_to_number(value) to convert string|number into number.",
+      "target_file": "workspace/gen_ts_union_narrowing_96a5ea885003/src/solution.ts",
+      "function_name": "union_to_number",
+      "testcases": [
+        {
+          "inputs": [
+            "78"
+          ],
+          "expected": 78
+        },
+        {
+          "inputs": [
+            9
+          ],
+          "expected": 9
+        }
+      ],
+      "difficulty": "easy",
+      "language": "ts",
+      "signature": "(value: string | number) => number",
+      "constraints": {
+        "json_only": true,
+        "strict": true
+      },
+      "tags": [
+        "ts",
+        "union",
+        "narrowing",
+        "generated"
+      ],
+      "attempts": [
+        "export function union_to_number(value: string | number): number {\n  return value;\n}\n",
+        "export function union_to_number(value: string | number): number {\n  if (typeof value === \"string\") {\n    return Number(value);\n  }\n  return value;\n}\n"
+      ]
+    },
+    {
+      "task_id": "gen_ts_optional_chaining_3cbe2172d661",
+      "prompt": "Write pick_user_name(input) using optional chaining; return empty string when missing.",
+      "target_file": "workspace/gen_ts_optional_chaining_3cbe2172d661/src/solution.ts",
+      "function_name": "pick_user_name",
+      "testcases": [
+        {
+          "inputs": [
+            {
+              "user": {
+                "name": "bob"
+              }
+            }
+          ],
+          "expected": "bob"
+        },
+        {
+          "inputs": [
+            {
+              "user": {}
+            }
+          ],
+          "expected": ""
+        },
+        {
+          "inputs": [
+            null
+          ],
+          "expected": ""
+        }
+      ],
+      "difficulty": "medium",
+      "language": "ts",
+      "signature": "(input: { user?: { name?: string } } | null) => string",
+      "constraints": {
+        "json_only": true,
+        "strict": true
+      },
+      "tags": [
+        "ts",
+        "optional_chaining",
+        "null_safety",
+        "generated"
+      ],
+      "attempts": [
+        "export function pick_user_name(input: { user?: { name?: string } } | null): string {\n  return input.user.name;\n}\n",
+        "export function pick_user_name(input: { user?: { name?: string } } | null): string {\n  return input?.user?.name ?? \"\";\n}\n"
+      ]
+    },
+    {
+      "task_id": "gen_ts_generic_identity_b0a10b3c6eb1",
+      "prompt": "Write generic identity(value) preserving input type and value.",
+      "target_file": "workspace/gen_ts_generic_identity_b0a10b3c6eb1/src/solution.ts",
+      "function_name": "identity",
+      "testcases": [
+        {
+          "inputs": [
+            "y"
+          ],
+          "expected": "y"
+        },
+        {
+          "inputs": [
+            2
+          ],
+          "expected": 2
+        }
+      ],
+      "difficulty": "medium",
+      "language": "ts",
+      "signature": "<T>(value: T) => T",
+      "constraints": {
+        "json_only": true,
+        "strict": true
+      },
+      "tags": [
+        "ts",
+        "generic",
+        "generated"
+      ],
+      "attempts": [
+        "export function identity<T>(value: T): T {\n  return undefined as unknown as T;\n}\n",
+        "export function identity<T>(value: T): T {\n  return value;\n}\n"
+      ]
+    },
+    {
+      "task_id": "gen_ts_record_shape_b8024d9e23d8",
+      "prompt": "Write format_row(item) returning `${id}:${name}` for a typed record.",
+      "target_file": "workspace/gen_ts_record_shape_b8024d9e23d8/src/solution.ts",
+      "function_name": "format_row",
+      "testcases": [
+        {
+          "inputs": [
+            {
+              "id": 3,
+              "name": "alice"
+            }
+          ],
+          "expected": "3:alice"
+        },
+        {
+          "inputs": [
+            {
+              "id": 0,
+              "name": "n/a"
+            }
+          ],
+          "expected": "0:n/a"
+        }
+      ],
+      "difficulty": "easy",
+      "language": "ts",
+      "signature": "(item: { id: number; name: string }) => string",
+      "constraints": {
+        "json_only": true,
+        "strict": true
+      },
+      "tags": [
+        "ts",
+        "record",
+        "shape",
+        "generated"
+      ],
+      "attempts": [
+        "export function format_row(item: { id: number; name: string }): string {\n  return item.id;\n}\n",
+        "export function format_row(item: { id: number; name: string }): string {\n  return `${item.id}:${item.name}`;\n}\n"
+      ]
+    },
+    {
+      "task_id": "gen_ts_null_undefined_strict_69265a217d32",
+      "prompt": "Write normalize_text(value) returning trimmed string or empty for null/undefined.",
+      "target_file": "workspace/gen_ts_null_undefined_strict_69265a217d32/src/solution.ts",
+      "function_name": "normalize_text",
+      "testcases": [
+        {
+          "inputs": [
+            "world"
+          ],
+          "expected": "world"
+        },
+        {
+          "inputs": [
+            null
+          ],
+          "expected": ""
+        }
+      ],
+      "difficulty": "medium",
+      "language": "ts",
+      "signature": "(value: string | null | undefined) => string",
+      "constraints": {
+        "json_only": true,
+        "strict": true
+      },
+      "tags": [
+        "ts",
+        "null",
+        "undefined",
+        "strict",
+        "generated"
+      ],
+      "attempts": [
+        "export function normalize_text(value: string | null | undefined): string {\n  return value.trim();\n}\n",
+        "export function normalize_text(value: string | null | undefined): string {\n  return value?.trim() ?? \"\";\n}\n"
+      ]
+    },
+    {
+      "task_id": "gen_ts_union_narrowing_4ed91a9847fa",
+      "prompt": "Write union_to_number(value) to convert string|number into number.",
+      "target_file": "workspace/gen_ts_union_narrowing_4ed91a9847fa/src/solution.ts",
+      "function_name": "union_to_number",
+      "testcases": [
+        {
+          "inputs": [
+            "81"
+          ],
+          "expected": 81
+        },
+        {
+          "inputs": [
+            6
+          ],
+          "expected": 6
+        }
+      ],
+      "difficulty": "easy",
+      "language": "ts",
+      "signature": "(value: string | number) => number",
+      "constraints": {
+        "json_only": true,
+        "strict": true
+      },
+      "tags": [
+        "ts",
+        "union",
+        "narrowing",
+        "generated"
+      ],
+      "attempts": [
+        "export function union_to_number(value: string | number): number {\n  return value;\n}\n",
+        "export function union_to_number(value: string | number): number {\n  if (typeof value === \"string\") {\n    return Number(value);\n  }\n  return value;\n}\n"
+      ]
+    },
+    {
+      "task_id": "gen_ts_optional_chaining_513cede36ddd",
+      "prompt": "Write pick_user_name(input) using optional chaining; return empty string when missing.",
+      "target_file": "workspace/gen_ts_optional_chaining_513cede36ddd/src/solution.ts",
+      "function_name": "pick_user_name",
+      "testcases": [
+        {
+          "inputs": [
+            {
+              "user": {
+                "name": "carol"
+              }
+            }
+          ],
+          "expected": "carol"
+        },
+        {
+          "inputs": [
+            {
+              "user": {}
+            }
+          ],
+          "expected": ""
+        },
+        {
+          "inputs": [
+            null
+          ],
+          "expected": ""
+        }
+      ],
+      "difficulty": "medium",
+      "language": "ts",
+      "signature": "(input: { user?: { name?: string } } | null) => string",
+      "constraints": {
+        "json_only": true,
+        "strict": true
+      },
+      "tags": [
+        "ts",
+        "optional_chaining",
+        "null_safety",
+        "generated"
+      ],
+      "attempts": [
+        "export function pick_user_name(input: { user?: { name?: string } } | null): string {\n  return input.user.name;\n}\n",
+        "export function pick_user_name(input: { user?: { name?: string } } | null): string {\n  return input?.user?.name ?? \"\";\n}\n"
+      ]
+    },
+    {
+      "task_id": "gen_ts_generic_identity_76c6d5abce72",
+      "prompt": "Write generic identity(value) preserving input type and value.",
+      "target_file": "workspace/gen_ts_generic_identity_76c6d5abce72/src/solution.ts",
+      "function_name": "identity",
+      "testcases": [
+        {
+          "inputs": [
+            "x"
+          ],
+          "expected": "x"
+        },
+        {
+          "inputs": [
+            6
+          ],
+          "expected": 6
+        }
+      ],
+      "difficulty": "medium",
+      "language": "ts",
+      "signature": "<T>(value: T) => T",
+      "constraints": {
+        "json_only": true,
+        "strict": true
+      },
+      "tags": [
+        "ts",
+        "generic",
+        "generated"
+      ],
+      "attempts": [
+        "export function identity<T>(value: T): T {\n  return undefined as unknown as T;\n}\n",
+        "export function identity<T>(value: T): T {\n  return value;\n}\n"
+      ]
+    },
+    {
+      "task_id": "gen_ts_record_shape_1cae0d42d017",
+      "prompt": "Write format_row(item) returning `${id}:${name}` for a typed record.",
+      "target_file": "workspace/gen_ts_record_shape_1cae0d42d017/src/solution.ts",
+      "function_name": "format_row",
+      "testcases": [
+        {
+          "inputs": [
+            {
+              "id": 1,
+              "name": "bob"
+            }
+          ],
+          "expected": "1:bob"
+        },
+        {
+          "inputs": [
+            {
+              "id": 0,
+              "name": "n/a"
+            }
+          ],
+          "expected": "0:n/a"
+        }
+      ],
+      "difficulty": "easy",
+      "language": "ts",
+      "signature": "(item: { id: number; name: string }) => string",
+      "constraints": {
+        "json_only": true,
+        "strict": true
+      },
+      "tags": [
+        "ts",
+        "record",
+        "shape",
+        "generated"
+      ],
+      "attempts": [
+        "export function format_row(item: { id: number; name: string }): string {\n  return item.id;\n}\n",
+        "export function format_row(item: { id: number; name: string }): string {\n  return `${item.id}:${item.name}`;\n}\n"
+      ]
+    },
+    {
+      "task_id": "gen_ts_null_undefined_strict_8a345a421cf2",
+      "prompt": "Write normalize_text(value) returning trimmed string or empty for null/undefined.",
+      "target_file": "workspace/gen_ts_null_undefined_strict_8a345a421cf2/src/solution.ts",
+      "function_name": "normalize_text",
+      "testcases": [
+        {
+          "inputs": [
+            " hello "
+          ],
+          "expected": "hello"
+        },
+        {
+          "inputs": [
+            null
+          ],
+          "expected": ""
+        }
+      ],
+      "difficulty": "medium",
+      "language": "ts",
+      "signature": "(value: string | null | undefined) => string",
+      "constraints": {
+        "json_only": true,
+        "strict": true
+      },
+      "tags": [
+        "ts",
+        "null",
+        "undefined",
+        "strict",
+        "generated"
+      ],
+      "attempts": [
+        "export function normalize_text(value: string | null | undefined): string {\n  return value.trim();\n}\n",
+        "export function normalize_text(value: string | null | undefined): string {\n  return value?.trim() ?? \"\";\n}\n"
+      ]
+    },
+    {
+      "task_id": "gen_ts_union_narrowing_47453dce94fa",
+      "prompt": "Write union_to_number(value) to convert string|number into number.",
+      "target_file": "workspace/gen_ts_union_narrowing_47453dce94fa/src/solution.ts",
+      "function_name": "union_to_number",
+      "testcases": [
+        {
+          "inputs": [
+            "86"
+          ],
+          "expected": 86
+        },
+        {
+          "inputs": [
+            7
+          ],
+          "expected": 7
+        }
+      ],
+      "difficulty": "easy",
+      "language": "ts",
+      "signature": "(value: string | number) => number",
+      "constraints": {
+        "json_only": true,
+        "strict": true
+      },
+      "tags": [
+        "ts",
+        "union",
+        "narrowing",
+        "generated"
+      ],
+      "attempts": [
+        "export function union_to_number(value: string | number): number {\n  return value;\n}\n",
+        "export function union_to_number(value: string | number): number {\n  if (typeof value === \"string\") {\n    return Number(value);\n  }\n  return value;\n}\n"
+      ]
+    },
+    {
+      "task_id": "gen_ts_optional_chaining_7423dd8c97d5",
+      "prompt": "Write pick_user_name(input) using optional chaining; return empty string when missing.",
+      "target_file": "workspace/gen_ts_optional_chaining_7423dd8c97d5/src/solution.ts",
+      "function_name": "pick_user_name",
+      "testcases": [
+        {
+          "inputs": [
+            {
+              "user": {
+                "name": "alice"
+              }
+            }
+          ],
+          "expected": "alice"
+        },
+        {
+          "inputs": [
+            {
+              "user": {}
+            }
+          ],
+          "expected": ""
+        },
+        {
+          "inputs": [
+            null
+          ],
+          "expected": ""
+        }
+      ],
+      "difficulty": "medium",
+      "language": "ts",
+      "signature": "(input: { user?: { name?: string } } | null) => string",
+      "constraints": {
+        "json_only": true,
+        "strict": true
+      },
+      "tags": [
+        "ts",
+        "optional_chaining",
+        "null_safety",
+        "generated"
+      ],
+      "attempts": [
+        "export function pick_user_name(input: { user?: { name?: string } } | null): string {\n  return input.user.name;\n}\n",
+        "export function pick_user_name(input: { user?: { name?: string } } | null): string {\n  return input?.user?.name ?? \"\";\n}\n"
+      ]
+    },
+    {
+      "task_id": "gen_ts_generic_identity_743c975aebe7",
+      "prompt": "Write generic identity(value) preserving input type and value.",
+      "target_file": "workspace/gen_ts_generic_identity_743c975aebe7/src/solution.ts",
+      "function_name": "identity",
+      "testcases": [
+        {
+          "inputs": [
+            "x"
+          ],
+          "expected": "x"
+        },
+        {
+          "inputs": [
+            11
+          ],
+          "expected": 11
+        }
+      ],
+      "difficulty": "medium",
+      "language": "ts",
+      "signature": "<T>(value: T) => T",
+      "constraints": {
+        "json_only": true,
+        "strict": true
+      },
+      "tags": [
+        "ts",
+        "generic",
+        "generated"
+      ],
+      "attempts": [
+        "export function identity<T>(value: T): T {\n  return undefined as unknown as T;\n}\n",
+        "export function identity<T>(value: T): T {\n  return value;\n}\n"
+      ]
+    },
+    {
+      "task_id": "gen_ts_record_shape_5e68e037790c",
+      "prompt": "Write format_row(item) returning `${id}:${name}` for a typed record.",
+      "target_file": "workspace/gen_ts_record_shape_5e68e037790c/src/solution.ts",
+      "function_name": "format_row",
+      "testcases": [
+        {
+          "inputs": [
+            {
+              "id": 8,
+              "name": "alice"
+            }
+          ],
+          "expected": "8:alice"
+        },
+        {
+          "inputs": [
+            {
+              "id": 0,
+              "name": "n/a"
+            }
+          ],
+          "expected": "0:n/a"
+        }
+      ],
+      "difficulty": "easy",
+      "language": "ts",
+      "signature": "(item: { id: number; name: string }) => string",
+      "constraints": {
+        "json_only": true,
+        "strict": true
+      },
+      "tags": [
+        "ts",
+        "record",
+        "shape",
+        "generated"
+      ],
+      "attempts": [
+        "export function format_row(item: { id: number; name: string }): string {\n  return item.id;\n}\n",
+        "export function format_row(item: { id: number; name: string }): string {\n  return `${item.id}:${item.name}`;\n}\n"
+      ]
+    },
+    {
+      "task_id": "gen_ts_null_undefined_strict_416dd565cd91",
+      "prompt": "Write normalize_text(value) returning trimmed string or empty for null/undefined.",
+      "target_file": "workspace/gen_ts_null_undefined_strict_416dd565cd91/src/solution.ts",
+      "function_name": "normalize_text",
+      "testcases": [
+        {
+          "inputs": [
+            " hello "
+          ],
+          "expected": "hello"
+        },
+        {
+          "inputs": [
+            null
+          ],
+          "expected": ""
+        }
+      ],
+      "difficulty": "medium",
+      "language": "ts",
+      "signature": "(value: string | null | undefined) => string",
+      "constraints": {
+        "json_only": true,
+        "strict": true
+      },
+      "tags": [
+        "ts",
+        "null",
+        "undefined",
+        "strict",
+        "generated"
+      ],
+      "attempts": [
+        "export function normalize_text(value: string | null | undefined): string {\n  return value.trim();\n}\n",
+        "export function normalize_text(value: string | null | undefined): string {\n  return value?.trim() ?? \"\";\n}\n"
+      ]
+    }
+  ]
+}

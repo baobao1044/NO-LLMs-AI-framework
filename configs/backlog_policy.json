@@ -1,0 +1,7 @@
+{
+  "strategy": "max_impact",
+  "language_priority": ["ts", "py"],
+  "stage_priority": ["tsc", "unit_test", "timeout"],
+  "top_n": 3,
+  "min_count": 3
+}

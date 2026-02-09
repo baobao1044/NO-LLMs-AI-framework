@@ -1,0 +1,75 @@
+{
+  "generated_at_utc": "2026-02-09T05:38:57.888591+00:00",
+  "summary": {
+    "total_records": 23,
+    "eligible_records": 11,
+    "solved_records": 11,
+    "overall_solve_rate": 100.0,
+    "language_breakdown": {}
+  },
+  "groups_by_count": [],
+  "groups_by_low_solve_rate": [],
+  "coverage": {
+    "signatures_total": 11,
+    "signatures_covered_by_patcher": 0,
+    "signatures_uncovered": 11,
+    "coverage_rate": 0.0,
+    "top_uncovered_signatures": [
+      {
+        "language": "py",
+        "error_signature": "AssertionError:case 1 mismatch: args=(-20, -3), expected=-17, actual=-23",
+        "count": 0
+      },
+      {
+        "language": "py",
+        "error_signature": "AssertionError:case 1 mismatch: args=(-7, -4, 9), expected=-4, actual=-7",
+        "count": 0
+      },
+      {
+        "language": "py",
+        "error_signature": "AssertionError:case 1 mismatch: args=(1, 2), expected=3, actual=-1",
+        "count": 0
+      },
+      {
+        "language": "py",
+        "error_signature": "AssertionError:case 1 mismatch: args=(11, -11), expected=-121, actual=0",
+        "count": 0
+      },
+      {
+        "language": "py",
+        "error_signature": "AssertionError:case 1 mismatch: args=(17, 15), expected=32, actual=2",
+        "count": 0
+      },
+      {
+        "language": "py",
+        "error_signature": "SyntaxError:expected ':' (golden_inc_v1.py, line 1)",
+        "count": 0
+      },
+      {
+        "language": "ts",
+        "error_signature": "AssertionError:case 1 mismatch: expected=\"z\" actual=undefined",
+        "count": 0
+      },
+      {
+        "language": "ts",
+        "error_signature": "AssertionError:case 1 mismatch: expected=5 actual=-1",
+        "count": 0
+      },
+      {
+        "language": "ts",
+        "error_signature": "TS2322:Type 'number' is not assignable to type 'string'.",
+        "count": 0
+      },
+      {
+        "language": "ts",
+        "error_signature": "TS2322:Type 'string | number' is not assignable to type 'number'.",
+        "count": 0
+      },
+      {
+        "language": "ts",
+        "error_signature": "TS2322:Type 'string | undefined' is not assignable to type 'string'.",
+        "count": 0
+      }
+    ]
+  }
+}

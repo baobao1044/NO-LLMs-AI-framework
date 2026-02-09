@@ -1,0 +1,43 @@
+{
+  "generated_at_utc": "2026-02-09T04:41:31.893425+00:00",
+  "run_count": 3,
+  "pass_rate": 100.0,
+  "mean_attempts": 2.0,
+  "failure_type_counts": {
+    "assertion_fail": 3
+  },
+  "run_count_by_language": {
+    "ts": 3
+  },
+  "pass_rate_by_language": {
+    "ts": 100.0
+  },
+  "mean_attempts_by_language": {
+    "ts": 2.0
+  },
+  "failure_type_counts_by_language": {
+    "ts": {
+      "assertion_fail": 3
+    }
+  },
+  "tasks": [
+    {
+      "task_id": "ts_add_v1",
+      "language": "ts",
+      "done": true,
+      "attempts_used": 2
+    },
+    {
+      "task_id": "ts_clamp_v1",
+      "language": "ts",
+      "done": true,
+      "attempts_used": 2
+    },
+    {
+      "task_id": "ts_palindrome_v1",
+      "language": "ts",
+      "done": true,
+      "attempts_used": 2
+    }
+  ]
+}

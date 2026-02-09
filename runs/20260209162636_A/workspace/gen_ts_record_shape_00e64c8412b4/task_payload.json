@@ -1,0 +1,1 @@
+{"function_name": "format_row", "testcases": [{"inputs": [{"id": 1, "name": "eve"}], "expected": "1:eve"}, {"inputs": [{"id": 0, "name": "n/a"}], "expected": "0:n/a"}]}

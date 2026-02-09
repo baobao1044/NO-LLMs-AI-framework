@@ -1,11 +1,116 @@
 {
-  "generated_at_utc": "2026-02-09T06:15:22.208461+00:00",
+  "generated_at_utc": "2026-02-09T16:40:24.684794+00:00",
   "source_log": "logs/agent_runs.jsonl",
   "language_filter": "all",
   "top_k": 50,
   "min_count": 3,
   "solve_rate_threshold": 0.85,
   "patch_success_threshold": 0.5,
-  "total_candidates": 0,
-  "items": []
+  "total_candidates": 4,
+  "items": [
+    {
+      "language": "py",
+      "failure_type": "assertion_fail",
+      "error_signature": "AssertionError:case 1 mismatch: args=('\\\\\\\\d+', 'a1 b22 c333'), expected=['1', '22', '333'], actual=[]",
+      "verifier_stage_failed": "unit_test",
+      "count_total": 4,
+      "solve_rate": 0.0,
+      "patch_hit_rate": 0.25,
+      "patch_success_rate": 0.0,
+      "suggested_category": "other",
+      "priority_score": 4.0,
+      "examples": [
+        {
+          "task_id": "gen_regex_findall_86483f0e5840",
+          "prompt": "Write regex_findall(pattern, text) returning re.findall result.",
+          "code": "import re def regex_findall(pattern, text): return re.findall(pattern, text)",
+          "error_message": "case 1 mismatch: args=('\\\\\\\\d+', 'a1 b22 c333'), expected=['1', '22', '333'], actual=[]",
+          "artifact_hash": "3b042e7a743017052da2b03a78ed3a2de5d12b379cb8b56846a904f4e401a375",
+          "parent_artifact_hash": "9791981e01b7dd8a1f6a3d6cf0433641916c4f63f7575381e4a89b097d4b5828"
+        },
+        {
+          "task_id": "gen_regex_findall_86483f0e5840",
+          "prompt": "Write regex_findall(pattern, text) returning re.findall result.",
+          "code": "import re def regex_findall(pattern, text): return re.findall(pattern, text)",
+          "error_message": "case 1 mismatch: args=('\\\\\\\\d+', 'a1 b22 c333'), expected=['1', '22', '333'], actual=[]",
+          "artifact_hash": "9791981e01b7dd8a1f6a3d6cf0433641916c4f63f7575381e4a89b097d4b5828",
+          "parent_artifact_hash": "9938f7d1146256ed7946350802f412b8b34b4c3bb7fdb231173748860bd88265"
+        },
+        {
+          "task_id": "gen_regex_findall_86483f0e5840",
+          "prompt": "Write regex_findall(pattern, text) returning re.findall result.",
+          "code": "import re def regex_findall(pattern, text): return re.findall(pattern, text)",
+          "error_message": "case 1 mismatch: args=('\\\\\\\\d+', 'a1 b22 c333'), expected=['1', '22', '333'], actual=[]",
+          "artifact_hash": "5254718768db155414ec8a1ee4335481b25a0d108c5906deee4f4b52efbdf6ca",
+          "parent_artifact_hash": null
+        }
+      ]
+    },
+    {
+      "language": "ts",
+      "failure_type": "assertion_fail",
+      "error_signature": "AssertionError:case 2 mismatch: expected=\"\" actual=undefined",
+      "verifier_stage_failed": "unit_test",
+      "count_total": 12,
+      "solve_rate": 1.0,
+      "patch_hit_rate": 0.0,
+      "patch_success_rate": 0.0,
+      "suggested_category": "other",
+      "priority_score": 0.0,
+      "examples": [
+        {
+          "task_id": "gen_ts_optional_chaining_c8c8cb42d012",
+          "prompt": "Write pick_user_name(input) using optional chaining; return empty string when missing.",
+          "code": "export function pick_user_name(input: { user?: { name?: string } } | null): string { return input.user.name; }",
+          "error_message": "case 2 mismatch: expected=\"\" actual=undefined",
+          "artifact_hash": "d03b7f4725e00b2bdc70e8cd519bacfb77dbee26bf488db613574ce89334913c",
+          "parent_artifact_hash": null
+        }
+      ]
+    },
+    {
+      "language": "ts",
+      "failure_type": "runtime_error",
+      "error_signature": "RuntimeError:case 2 raised TypeError: Cannot read properties of null (reading 'trim')",
+      "verifier_stage_failed": "unit_test",
+      "count_total": 12,
+      "solve_rate": 1.0,
+      "patch_hit_rate": 0.0,
+      "patch_success_rate": 0.0,
+      "suggested_category": "other",
+      "priority_score": 0.0,
+      "examples": [
+        {
+          "task_id": "gen_ts_null_undefined_strict_3859896f583b",
+          "prompt": "Write normalize_text(value) returning trimmed string or empty for null/undefined.",
+          "code": "export function normalize_text(value: string | null | undefined): string { return value.trim(); }",
+          "error_message": "case 2 raised TypeError: Cannot read properties of null (reading 'trim')",
+          "artifact_hash": "5b1f272871b1654b3fd88f848b573b980f830c73f307952bbe814b9d4b82cdf0",
+          "parent_artifact_hash": null
+        }
+      ]
+    },
+    {
+      "language": "ts",
+      "failure_type": "ts_syntax_error",
+      "error_signature": "TS1005:<path>",
+      "verifier_stage_failed": "tsc",
+      "count_total": 12,
+      "solve_rate": 1.0,
+      "patch_hit_rate": 0.0,
+      "patch_success_rate": 0.0,
+      "suggested_category": "syntax_fix",
+      "priority_score": 0.0,
+      "examples": [
+        {
+          "task_id": "gen_ts_generic_identity_8995ee15cd40",
+          "prompt": "Write generic identity(value) preserving input type and value.",
+          "code": "export function identity<T>(value: T): T { return undefined as unknown as T; }",
+          "error_message": "<path>",
+          "artifact_hash": "e3f89faa50ba2dc8fda5a6292eb8f470314ada877569c1505bb760942b658063",
+          "parent_artifact_hash": null
+        }
+      ]
+    }
+  ]
 }

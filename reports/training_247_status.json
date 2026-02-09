@@ -1,0 +1,20 @@
+{
+  "updated_utc": "2026-02-09T16:40:29.923267+00:00",
+  "pid": 367732,
+  "running": true,
+  "state": "running",
+  "current_step": "daily_ab",
+  "total_cycles": 2,
+  "successful_cycles": 1,
+  "consecutive_failures": 0,
+  "sleep_seconds": 5,
+  "ci_every": 0,
+  "max_consecutive_failures": 3,
+  "last_cycle": {
+    "cycle_key": "20260209164029",
+    "started_utc": "2026-02-09T16:40:29.923245+00:00",
+    "config": "configs/daily_training_full.json",
+    "policy_b": "configs/proposer_policy_training_full.json",
+    "steps": []
+  }
+}

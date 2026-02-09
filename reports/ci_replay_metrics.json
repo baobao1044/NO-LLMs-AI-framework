@@ -4,6 +4,7 @@
   "replay_match": 2,
   "replay_match_rate": 100.0,
   "unreplayable_lossy": 0,
+  "unreplayable_proposer_missing_code": 0,
   "timeout_rate": 0.0,
   "top_error_signature": [
     {
@@ -19,7 +20,7 @@
     "node_version": "v24.11.1",
     "tsc_version": "unknown",
     "platform": "Linux-6.8.0-1041-azure-x86_64-with-glibc2.39",
-    "git_commit": "7bc56958e5ac9ff7d59353ea80d78e1ea2af47a0"
+    "git_commit": "435c6cddf83d732186148fb772d5c7d0ca230988"
   },
   "env_fingerprint_mismatch_count": 0
 }

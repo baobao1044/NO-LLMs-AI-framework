@@ -1,0 +1,65 @@
+{
+  "generated_at_utc": "2026-02-09T16:25:45.048636+00:00",
+  "solve_rate": {
+    "before": 0.966667,
+    "after": 0.966667,
+    "delta": 0.0
+  },
+  "pass_rate_by_language": {
+    "py": {
+      "before": 0.936508,
+      "after": 0.936508,
+      "delta": 0.0
+    },
+    "ts": {
+      "before": 1.0,
+      "after": 1.0,
+      "delta": 0.0
+    }
+  },
+  "signature_coverage": {
+    "before": 0.060606,
+    "after": 0.060606,
+    "delta": 0.0
+  },
+  "signature_coverage_delta": 0.0,
+  "top_uncovered_delta": {
+    "added": [],
+    "removed": [],
+    "added_count": 0,
+    "removed_count": 0
+  },
+  "timeout_rate": {
+    "before": 0.0,
+    "after": 0.0,
+    "delta": 0.0
+  },
+  "flaky_groups_count": {
+    "before": 0,
+    "after": 0,
+    "delta": 0
+  },
+  "attempts_saved_by_patchers": {
+    "before": 13,
+    "after": 13,
+    "delta": 0
+  },
+  "attempts_saved_by_patchers_delta": 0,
+  "cost": {
+    "proposer_calls": 110,
+    "proposer_seconds": 2.971082,
+    "calls_by_proposer": {
+      "codex_proposer": 110
+    },
+    "solve_gain_per_call": 0.0
+  },
+  "decision": {
+    "enable_proposer": true,
+    "criteria": {
+      "min_solve_rate_gain": -0.02,
+      "max_timeout_increase": 0.02,
+      "max_flaky_increase": 0
+    },
+    "reason": "enable proposer"
+  }
+}

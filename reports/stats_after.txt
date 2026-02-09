@@ -1,70 +1,307 @@
-records=23
-runs=12
+records=245
+runs=120
 pass_rate_by_language:
-  language=py pass_rate=100.00% (7/7)
-  language=ts pass_rate=100.00% (5/5)
+  language=py pass_rate=96.83% (61/63)
+  language=ts pass_rate=100.00% (57/57)
 pass_rate_by_task:
-  task_id=gen_add_03cec5300a81 task_hash=f494ce13cc54f6894fd6fb7f0f297214f1cb511cd99113f7b72c405e25b692ac pass_rate=100.00% (1/1)
-  task_id=gen_clamp_737a7ebdfb85 task_hash=701705f1eab224b4ffa22dc1ad38b09f5e60ed69e6e09cb3ac4b83835a60bff6 pass_rate=100.00% (1/1)
-  task_id=gen_mul_af6931f1b73c task_hash=25a2f5d36dd9c732fb4e6b3e7e3e50e95bd7cade1173b1d26a3fa1c09cab710f pass_rate=100.00% (1/1)
-  task_id=gen_sub_7e77e63d1e7c task_hash=200087a98b830ec430a93637fa956c4313d8e41e0a62333e210ccf8df57925cc pass_rate=100.00% (1/1)
-  task_id=gen_ts_generic_identity_b014a68beeae task_hash=d0f5220138a698632f796ce2e2abc0de980fe3012445a07a82a3f6a2c0bf7637 pass_rate=100.00% (1/1)
-  task_id=gen_ts_optional_chaining_3cbe2172d661 task_hash=b71aa70461e2df3dfd8ea309a3a8a6498b561a7dde1afb468c119b88c93559f9 pass_rate=100.00% (1/1)
-  task_id=gen_ts_record_shape_3299a1d4bcee task_hash=049a4bb0709db168554a53a18c83fa8d540236c5cda77d55ca3f07235b2d2e09 pass_rate=100.00% (1/1)
-  task_id=gen_ts_union_narrowing_a307380e8a3c task_hash=fbfe536e5120e877933be85b728d30a107e08f3e7ffb01e1a921016b5d1b54df pass_rate=100.00% (1/1)
-  task_id=golden_add_v1 task_hash=dbf13c7433259463bccc0affd946c08dc296b86a37bf4c05a37a5ab3de4f2377 pass_rate=100.00% (1/1)
-  task_id=golden_inc_v1 task_hash=7875f03a4f2bb7c6c5ea3c913712fa47a5a0b977731d5340779fd5b701b261f7 pass_rate=100.00% (1/1)
-  task_id=golden_mul_v1 task_hash=cf787266d748ee3b30aa635d9ba9c3af7a6bccbcbd042fb03f46ff63e5206344 pass_rate=100.00% (1/1)
-  task_id=ts_add_v1 task_hash=d96fd69edbcb7a9861205cd0b2ef604b39d577a47dcc61283656867f473432f8 pass_rate=100.00% (1/1)
+  task_id=gen_add_142926ee2a31 task_hash=ed22d5139c69724f9ac0ae8d8fe87872c7adfc9382bb32a6bc1c7fa85a4503f0 pass_rate=100.00% (1/1)
+  task_id=gen_add_22fb58fa8df0 task_hash=c21f4bdca05772450821d564b0571f9a7a90d4b30c5caed67b3671c0469e91dc pass_rate=100.00% (1/1)
+  task_id=gen_add_54ff8dedfca0 task_hash=385d9c57cf263449c526d2796db824a9445af6568c5821d9e0b6adbe7c3c68ba pass_rate=100.00% (1/1)
+  task_id=gen_add_657f37148fc4 task_hash=fdfa3afb824c9222aeb71b331a30c47200bdf436e55032018052cdad4c272a77 pass_rate=100.00% (1/1)
+  task_id=gen_add_6688587ad823 task_hash=b223c49368cc571611b547ca76b905874dc6eca0cd374962cd47966be16fb174 pass_rate=100.00% (1/1)
+  task_id=gen_add_9cdb16db7878 task_hash=dc3e57d3af08909abacc35eb85b64f0f8b1cdf9657889795de4966ca3a2e75ac pass_rate=100.00% (1/1)
+  task_id=gen_add_cf3e540ae079 task_hash=1f43f6fe37fadbd6991dc9ba20945bed33fbf68979ed535367be7474ed709672 pass_rate=100.00% (1/1)
+  task_id=gen_add_e3a967f0a782 task_hash=a90dbea5aa3e6967ebf146eebef9a128394995e788ef84a9c0a2a33f7703c757 pass_rate=100.00% (1/1)
+  task_id=gen_add_f8baecfd5000 task_hash=52139ba9f2af2b4927f579ab9434432477c6314acef40fe4709d79deeaa4123a pass_rate=100.00% (1/1)
+  task_id=gen_clamp_037787f58664 task_hash=4e773326dd3f5f938ad9e03cb1b9c2e379578c13736b6c8534b50e6202455cd9 pass_rate=100.00% (1/1)
+  task_id=gen_clamp_26cf5a94b7fd task_hash=183edfc863f5605de6ecbebc850698af9626bd93f05e7a704099338e3fa7e756 pass_rate=100.00% (1/1)
+  task_id=gen_clamp_3acdf9771e3e task_hash=f942b247d3b0045aaa1efccf6ffa29286fc44c00d46f948d6a1394a8c5e32beb pass_rate=100.00% (1/1)
+  task_id=gen_clamp_4d4f0835dbf6 task_hash=78f561a9a43a944fa46ba115d2d1b9f2e0a8d4272fdccb59bcb8e9899c2bed64 pass_rate=100.00% (1/1)
+  task_id=gen_clamp_90a9236cbc4f task_hash=e68870097ca8d7794e66507140699d247a40e423ba1dc3d83bd8268fd1f86903 pass_rate=100.00% (1/1)
+  task_id=gen_clamp_c0b0618d1932 task_hash=318678073670743c89886c8d1e5574c8214e22b314ca1827a5ba72f2c51c2c37 pass_rate=100.00% (1/1)
+  task_id=gen_clamp_d21d458525fe task_hash=7c325915d3b30bf3fa1dedc3de84639633cbd92e92e0e6e98385a955257b4b37 pass_rate=100.00% (1/1)
+  task_id=gen_clamp_e8010ab98afc task_hash=09b31cd140eb22bd80411847c8576a790a75acaa66ebbaab9e1fb04e0e55d2fb pass_rate=100.00% (1/1)
+  task_id=gen_clamp_e9ef21449aa3 task_hash=1b4fcc621ed842e472de98ee219a219d5885c20013e6624ce977f044844841bb pass_rate=100.00% (1/1)
+  task_id=gen_is_palindrome_033682ca70fd task_hash=202f669dc083e91b1a6521cd6d79c8f6db1f508ff1b48420b79e11a3235c0de2 pass_rate=100.00% (1/1)
+  task_id=gen_is_palindrome_6ec9080914a0 task_hash=2b27ec74a84f97bf70f81da1b2dc9456e1e1982de0d78e51e770026e48c2dde9 pass_rate=100.00% (1/1)
+  task_id=gen_is_palindrome_91527d7db025 task_hash=0dba9eface6659c5ab0f45b35380d81411a47f785babe4ae7392e7922b7a5922 pass_rate=100.00% (1/1)
+  task_id=gen_is_palindrome_9274d0e97bd0 task_hash=df25535d19301175d41c442b653499a2e69889abffd38221fbb266119841d524 pass_rate=100.00% (1/1)
+  task_id=gen_is_palindrome_962b7a82b1e9 task_hash=2b27ec74a84f97bf70f81da1b2dc9456e1e1982de0d78e51e770026e48c2dde9 pass_rate=100.00% (1/1)
+  task_id=gen_is_palindrome_97a651d73ac6 task_hash=719600c53bfc379b46479bf12f084f6a2b98ad1226f649a57388f143087068a2 pass_rate=100.00% (1/1)
+  task_id=gen_is_palindrome_ac42c84d89b7 task_hash=90aa605c9e0ad5fdf29c4f3a5b4765c931a54083aaa077c749daed64c1a21937 pass_rate=100.00% (1/1)
+  task_id=gen_is_palindrome_de6f097c3447 task_hash=5bae4025382c2e4cda5998bb7a4e43137408e570a38f6836044bb0d0f74a5884 pass_rate=100.00% (1/1)
+  task_id=gen_mul_129f55db9e44 task_hash=da2b6fda601044466a345e2b983fae74e480a7fb84d5f4e54b4f096f272f57d1 pass_rate=100.00% (1/1)
+  task_id=gen_mul_1f1be9dec560 task_hash=64b0de37de201d4a5d8a3d3f249b2da98ff7e727ab77d66b8020acd349b848ca pass_rate=100.00% (1/1)
+  task_id=gen_mul_3757138ae467 task_hash=19cf6d133586f9354afee227bf96fa2120cae164a297792d9f2f4424c5788f8b pass_rate=100.00% (1/1)
+  task_id=gen_mul_419e59c51464 task_hash=69d6b73ef6d8031ebee827e671440575c21856859e4c38fb74e1b159d801e86d pass_rate=100.00% (1/1)
+  task_id=gen_mul_4d1eb83e3e24 task_hash=ff55461e34c6f498ac9cc3adc1f66d99fa53f59409dfa78a80d4621097e9d9c5 pass_rate=100.00% (1/1)
+  task_id=gen_mul_7a8ad0b2247b task_hash=13607b9a710aa304210e89730f3b8559d1faad11f7c0cb78a628e68e5da7f3d9 pass_rate=100.00% (1/1)
+  task_id=gen_mul_7fdd9c7d8b7e task_hash=078bbb2e947e2fcab5c672001961feb69786a2e7fbe22296bd577ce45858ba75 pass_rate=100.00% (1/1)
+  task_id=gen_mul_c8199443ea16 task_hash=3066a320b32dbc8117b12d2f99148fc0ffa90ca4e33bfb3d989f9e0ab02d3f84 pass_rate=100.00% (1/1)
+  task_id=gen_mul_e4f30bb03568 task_hash=cea201eda9c359264f0cfd099d63d60e623d8fc1dfad896d973bab2a974e6322 pass_rate=100.00% (1/1)
+  task_id=gen_parse_json_field_1a909db8b8dc task_hash=94dd36d9b4f713d9a743e5aa91a1b85035fb2073dd174defd05221fb0c31b040 pass_rate=100.00% (1/1)
+  task_id=gen_parse_json_field_2bca122d93c1 task_hash=84610743b4282b71fad4a488ce87bbd4553c9943255164c2fd8090fe6edb58c1 pass_rate=100.00% (1/1)
+  task_id=gen_parse_json_field_2dfd9654096d task_hash=34dbb5e09a72bfe9a072abaf3f24c8a6f42d93dcf2b922468d9fd2574a9e3a8e pass_rate=100.00% (1/1)
+  task_id=gen_parse_json_field_39cd77d8f731 task_hash=fea41e85136f24c7915ce6592f3390887c1606101ac21604739de76d83f6606c pass_rate=100.00% (1/1)
+  task_id=gen_parse_json_field_4f4eb710aaa8 task_hash=84610743b4282b71fad4a488ce87bbd4553c9943255164c2fd8090fe6edb58c1 pass_rate=100.00% (1/1)
+  task_id=gen_parse_json_field_53e8e1e96485 task_hash=84610743b4282b71fad4a488ce87bbd4553c9943255164c2fd8090fe6edb58c1 pass_rate=100.00% (1/1)
+  task_id=gen_parse_json_field_5517fbd46699 task_hash=fcb1754ab7f493a89b260d177507ce013f5ff39557d0c1cc90e3c09d7adb360c pass_rate=100.00% (1/1)
+  task_id=gen_parse_json_field_9ffd8899e724 task_hash=94dd36d9b4f713d9a743e5aa91a1b85035fb2073dd174defd05221fb0c31b040 pass_rate=100.00% (1/1)
+  task_id=gen_regex_findall_6c658f8419f8 task_hash=5d55983d73db33de9003313c737ebaa1b6e54057048125cdd962dc4d7fb7e225 pass_rate=100.00% (1/1)
+  task_id=gen_regex_findall_86483f0e5840 task_hash=37721c536c560eb374b88a5f6228e1aef878d065aa4720e78a1595fec7f59700 pass_rate=0.00% (0/1)
+  task_id=gen_regex_findall_aac87e693c0d task_hash=5106d51195aefdc3a858d1ffcaf274cc9a783ed49a07403a167d1d52ecc68cf9 pass_rate=100.00% (1/1)
+  task_id=gen_regex_findall_c4d26b27453d task_hash=5d55983d73db33de9003313c737ebaa1b6e54057048125cdd962dc4d7fb7e225 pass_rate=100.00% (1/1)
+  task_id=gen_regex_findall_ca8b4b44c050 task_hash=5106d51195aefdc3a858d1ffcaf274cc9a783ed49a07403a167d1d52ecc68cf9 pass_rate=100.00% (1/1)
+  task_id=gen_regex_findall_cfbfa658eb43 task_hash=37721c536c560eb374b88a5f6228e1aef878d065aa4720e78a1595fec7f59700 pass_rate=0.00% (0/1)
+  task_id=gen_regex_findall_efb99a386d1a task_hash=5106d51195aefdc3a858d1ffcaf274cc9a783ed49a07403a167d1d52ecc68cf9 pass_rate=100.00% (1/1)
+  task_id=gen_regex_findall_f797afaf80ab task_hash=5d55983d73db33de9003313c737ebaa1b6e54057048125cdd962dc4d7fb7e225 pass_rate=100.00% (1/1)
+  task_id=gen_sub_00437a29fdaa task_hash=5aff2f1275efce07e004cef76844ee7bf2e466b9bee4743043b08d0dd466f59f pass_rate=100.00% (1/1)
+  task_id=gen_sub_1fd400560d2f task_hash=21e9e07857c614da6885cc2c327a1299a44a9b4f5cc19b15af67a4249834cc5e pass_rate=100.00% (1/1)
+  task_id=gen_sub_2c5303edcf14 task_hash=ceca9db9e666f9628c9de061e8466d51b27c04df4c6b6bb50f032562e9671453 pass_rate=100.00% (1/1)
+  task_id=gen_sub_46d3a50d6636 task_hash=edd13af56aeb159b820f955440c3513d6cf361959bb45768a4b29ed87292f3a1 pass_rate=100.00% (1/1)
+  task_id=gen_sub_727fcfb849fc task_hash=ec1f2096ad417ba3d81f26190e5e428d10d72087c5eff9f52182da41d20b2d99 pass_rate=100.00% (1/1)
+  task_id=gen_sub_a12d0184929c task_hash=9997fa19960ba6404675e111336b3da773170bbbe0f26644a87963f5f517eda2 pass_rate=100.00% (1/1)
+  task_id=gen_sub_c76a3ad15315 task_hash=6475ee2f64fde8b12c52aa117fe1d2d8408af4095dd5c0601e94d0bd0374a39f pass_rate=100.00% (1/1)
+  task_id=gen_sub_dd101b134061 task_hash=95bcf404ce480b434ca2db67a38173ce718d52e941d357ac5620d6f857edb1b8 pass_rate=100.00% (1/1)
+  task_id=gen_sub_f8e512c06267 task_hash=e540183f7f127fb9dc7a39a8993edd8a389bd910af1a1966b35268ae533867b4 pass_rate=100.00% (1/1)
+  task_id=gen_ts_generic_identity_1bcc24fb7a2f task_hash=0252b94b80717f654327e006eba5c3d814359a3296e384fd012ee0659b462636 pass_rate=100.00% (1/1)
+  task_id=gen_ts_generic_identity_2d91daf18362 task_hash=7605bae32493798280c1794d21a3f03ec7532a7f666b51315a661c99bf7adbd7 pass_rate=100.00% (1/1)
+  task_id=gen_ts_generic_identity_31be8ea17adb task_hash=23fc46fc74e432c696f35d5d0a9b2993b0b07e7581554e603f4375ffaecc0502 pass_rate=100.00% (1/1)
+  task_id=gen_ts_generic_identity_54d32711036f task_hash=b7d27b78fb29f761f44c1885558816885a2f2deaf1384bc63fbde8942226d614 pass_rate=100.00% (1/1)
+  task_id=gen_ts_generic_identity_7249dfc26e0e task_hash=7bc7277fac9b22d5dcffd48534e0cd0e1c560e5fbcd31f1f110062c0432e560e pass_rate=100.00% (1/1)
+  task_id=gen_ts_generic_identity_76c6d5abce72 task_hash=5f8b494542b721cf182162a5b4b82e8034fcd0c8938c95f2f3358b9db8149f4a pass_rate=100.00% (1/1)
+  task_id=gen_ts_generic_identity_b014a68beeae task_hash=94b41541a9c35dd055925bd75211867061659e7bb826585d11378b67e9aa7adf pass_rate=100.00% (1/1)
+  task_id=gen_ts_generic_identity_ba4ebe2436b8 task_hash=0fb6ff9f6fbbae76b295ebddf6cce397b693314244fe19993bde5d75fe09a1ad pass_rate=100.00% (1/1)
+  task_id=gen_ts_generic_identity_d925379ecbe0 task_hash=0fb6ff9f6fbbae76b295ebddf6cce397b693314244fe19993bde5d75fe09a1ad pass_rate=100.00% (1/1)
+  task_id=gen_ts_generic_identity_de15c3435c54 task_hash=4e9be4bffc5aafd34a9fd11897cf4c372e373b2bf3d694d5a0fa9afa48a8a07b pass_rate=100.00% (1/1)
+  task_id=gen_ts_generic_identity_e1b36cba9a9f task_hash=e6f827383189507f069febe4cee6e6f1d6f598fb812002663126bf4f51affd93 pass_rate=100.00% (1/1)
+  task_id=gen_ts_generic_identity_fbcec1537752 task_hash=4586a60163e3f02408c865f7c9eba65f797a62ad074831c509e8ceab6b111823 pass_rate=100.00% (1/1)
+  task_id=gen_ts_null_undefined_strict_0fc6ed97cd67 task_hash=e0babcb3f14b55d3f10d9585859bc79296f676812b7a5d9e977e3c490a7c289d pass_rate=100.00% (1/1)
+  task_id=gen_ts_null_undefined_strict_2739d5275101 task_hash=1890ad1d5d599c52d2b195ee5486a78b241e9708821f62b4132c03e25b54af49 pass_rate=100.00% (1/1)
+  task_id=gen_ts_null_undefined_strict_46367c00b2f9 task_hash=e0babcb3f14b55d3f10d9585859bc79296f676812b7a5d9e977e3c490a7c289d pass_rate=100.00% (1/1)
+  task_id=gen_ts_null_undefined_strict_548d61c2e401 task_hash=e0babcb3f14b55d3f10d9585859bc79296f676812b7a5d9e977e3c490a7c289d pass_rate=100.00% (1/1)
+  task_id=gen_ts_null_undefined_strict_5b7b0b4ba421 task_hash=e0babcb3f14b55d3f10d9585859bc79296f676812b7a5d9e977e3c490a7c289d pass_rate=100.00% (1/1)
+  task_id=gen_ts_null_undefined_strict_64e0dbfa28df task_hash=90826337f2e344bdfbf2fa460560ee086263a32bf57ec7cd61b63d2207e9605a pass_rate=100.00% (1/1)
+  task_id=gen_ts_null_undefined_strict_66ea74996fb5 task_hash=90826337f2e344bdfbf2fa460560ee086263a32bf57ec7cd61b63d2207e9605a pass_rate=100.00% (1/1)
+  task_id=gen_ts_null_undefined_strict_6e729fd88b21 task_hash=e0babcb3f14b55d3f10d9585859bc79296f676812b7a5d9e977e3c490a7c289d pass_rate=100.00% (1/1)
+  task_id=gen_ts_null_undefined_strict_87d6f7b7f4f6 task_hash=1890ad1d5d599c52d2b195ee5486a78b241e9708821f62b4132c03e25b54af49 pass_rate=100.00% (1/1)
+  task_id=gen_ts_null_undefined_strict_8a345a421cf2 task_hash=90826337f2e344bdfbf2fa460560ee086263a32bf57ec7cd61b63d2207e9605a pass_rate=100.00% (1/1)
+  task_id=gen_ts_null_undefined_strict_e58f37109a6a task_hash=90826337f2e344bdfbf2fa460560ee086263a32bf57ec7cd61b63d2207e9605a pass_rate=100.00% (1/1)
+  task_id=gen_ts_null_undefined_strict_f06e9cb81aad task_hash=e0babcb3f14b55d3f10d9585859bc79296f676812b7a5d9e977e3c490a7c289d pass_rate=100.00% (1/1)
+  task_id=gen_ts_optional_chaining_0b529428372c task_hash=986ce7618ea592eccdb26831ad1909f268309e4bdc2e269248787e3c1896bc0f pass_rate=100.00% (1/1)
+  task_id=gen_ts_optional_chaining_17bb97a35168 task_hash=986ce7618ea592eccdb26831ad1909f268309e4bdc2e269248787e3c1896bc0f pass_rate=100.00% (1/1)
+  task_id=gen_ts_optional_chaining_3cbe2172d661 task_hash=986ce7618ea592eccdb26831ad1909f268309e4bdc2e269248787e3c1896bc0f pass_rate=100.00% (1/1)
+  task_id=gen_ts_optional_chaining_513cede36ddd task_hash=31959225f3b11e0282f9a48fe3ddea773afda6a753e7b0f53e41027983d56a73 pass_rate=100.00% (1/1)
+  task_id=gen_ts_optional_chaining_524471f98845 task_hash=986ce7618ea592eccdb26831ad1909f268309e4bdc2e269248787e3c1896bc0f pass_rate=100.00% (1/1)
+  task_id=gen_ts_optional_chaining_6caad1847aab task_hash=4543cbda93a1541e3cfd67ffaf8cac99fccdf235622bdefb7b67a2620a295722 pass_rate=100.00% (1/1)
+  task_id=gen_ts_optional_chaining_9c40d05bcbf2 task_hash=4543cbda93a1541e3cfd67ffaf8cac99fccdf235622bdefb7b67a2620a295722 pass_rate=100.00% (1/1)
+  task_id=gen_ts_optional_chaining_9ffd1ddf0880 task_hash=31959225f3b11e0282f9a48fe3ddea773afda6a753e7b0f53e41027983d56a73 pass_rate=100.00% (1/1)
+  task_id=gen_ts_optional_chaining_a69c2aea5cff task_hash=4543cbda93a1541e3cfd67ffaf8cac99fccdf235622bdefb7b67a2620a295722 pass_rate=100.00% (1/1)
+  task_id=gen_ts_optional_chaining_ab37eac4f3e6 task_hash=986ce7618ea592eccdb26831ad1909f268309e4bdc2e269248787e3c1896bc0f pass_rate=100.00% (1/1)
+  task_id=gen_ts_optional_chaining_b27fd7db492c task_hash=986ce7618ea592eccdb26831ad1909f268309e4bdc2e269248787e3c1896bc0f pass_rate=100.00% (1/1)
+  task_id=gen_ts_optional_chaining_c8c8cb42d012 task_hash=4543cbda93a1541e3cfd67ffaf8cac99fccdf235622bdefb7b67a2620a295722 pass_rate=100.00% (1/1)
+  task_id=gen_ts_record_shape_076397d13cd1 task_hash=88832962cfbd4e254e66e5edcd2839e1395a6a437a39e77faabaff4e07e14e1f pass_rate=100.00% (1/1)
+  task_id=gen_ts_record_shape_2e9a77e57869 task_hash=8f4d63a39eb2fe8291dae6ba3098ad3d7e0b9e7d3997540d183dd556f6850dee pass_rate=100.00% (1/1)
+  task_id=gen_ts_record_shape_328cff96f8a4 task_hash=e5dc888c9dd397fa65dae94811ba63d24a64f99202f5257df66791a3a695e126 pass_rate=100.00% (1/1)
+  task_id=gen_ts_record_shape_5e68e037790c task_hash=94a7ee82f7deccc38d9777e66d2516b17e98cb92dd13dc8c4af2833a1045b8df pass_rate=100.00% (1/1)
+  task_id=gen_ts_record_shape_7885d3b424e0 task_hash=3bdd1a0a17f246cf75dc9cbcd15f986a9ffdd635eddf51d393a39399c7a47f5b pass_rate=100.00% (1/1)
+  task_id=gen_ts_record_shape_847f14c817f7 task_hash=a32c7e7789a4bb08a6ddbb22f8f80910caffa4779a9bdd06887475a7bb38bec4 pass_rate=100.00% (1/1)
+  task_id=gen_ts_record_shape_9c24d6d83bee task_hash=a7cd0cd2005a73a66880db03d8b629297df74e900e65ed0adc6c5c992722c937 pass_rate=100.00% (1/1)
+  task_id=gen_ts_record_shape_9f0f0653ab51 task_hash=5c1c92d7e3137569a4143d383ab4835592e57555c6247115fd8520104100c7f3 pass_rate=100.00% (1/1)
+  task_id=gen_ts_record_shape_aa371e57c4f1 task_hash=22189566c302cccd3ee69d9d26acefce8de33594370a2db4bb81bfb436825067 pass_rate=100.00% (1/1)
+  task_id=gen_ts_record_shape_bee941a9e03d task_hash=88832962cfbd4e254e66e5edcd2839e1395a6a437a39e77faabaff4e07e14e1f pass_rate=100.00% (1/1)
+  task_id=gen_ts_record_shape_e8f7934513d0 task_hash=3bdd1a0a17f246cf75dc9cbcd15f986a9ffdd635eddf51d393a39399c7a47f5b pass_rate=100.00% (1/1)
+  task_id=gen_ts_record_shape_ed0608ec974e task_hash=5024feea501896748c4160be17c13ae75a4b2cdbefda912d7b8a22210a9611b2 pass_rate=100.00% (1/1)
+  task_id=gen_ts_union_narrowing_0bb0897eb5c3 task_hash=b8b4656ca467f8cd147be0cb2694f6d49feac06f4ed7797230a4cd1029a22545 pass_rate=100.00% (1/1)
+  task_id=gen_ts_union_narrowing_2e4dd54e34be task_hash=d63eef6ce6eab4f18ae0a25a7848d3e8007a144b2cb154dbbae2b73986c36869 pass_rate=100.00% (1/1)
+  task_id=gen_ts_union_narrowing_34d80d61ce16 task_hash=229eb8a2dfc2bddc538ee6cb8842754d8bcd0b92e765878cc2d9af2c38d3d6b4 pass_rate=100.00% (1/1)
+  task_id=gen_ts_union_narrowing_371ca652d307 task_hash=5ce9d263c7ddfa12d054e4ed82068da2d37e036624fab38a76aa63ca5357da90 pass_rate=100.00% (1/1)
+  task_id=gen_ts_union_narrowing_6493040299db task_hash=dce807ee9c16833e04b3dccb9127a959cb452b9d03c0fac66183f554e2590386 pass_rate=100.00% (1/1)
+  task_id=gen_ts_union_narrowing_6def944b0e67 task_hash=7f8c09b6db7f5f33cb47f0abaa46c365d1bf5354ec21a9915f17b73f7b7885bc pass_rate=100.00% (1/1)
+  task_id=gen_ts_union_narrowing_7cdd1c9639d1 task_hash=0941db5ebf4ce435a47a6f39ff4ddaf8aea080dbdacbcb352389deeb3b234419 pass_rate=100.00% (1/1)
+  task_id=gen_ts_union_narrowing_825fd938dcc8 task_hash=2554ab382e5d264c7b39bd3a5fd2ceeddc41e800b54364f016908997cfda816f pass_rate=100.00% (1/1)
+  task_id=gen_ts_union_narrowing_827f6d7a228b task_hash=f42a312851e05e8cfeeb4729d1edf301e9e30c093cc1a057f903280d22ab9607 pass_rate=100.00% (1/1)
+  task_id=golden_add_v1 task_hash=0973c0c7216da4405b8fb7d7788128e923efe6c65dca3700068f18f0446a3d38 pass_rate=100.00% (1/1)
+  task_id=golden_inc_v1 task_hash=5bd5fe82fe9db59e2a8366770ed8779649df9982c23426ef9b34063064956466 pass_rate=100.00% (1/1)
+  task_id=golden_mul_v1 task_hash=5342c58da3ad0a3ffeef5e974f0f3c620c1ef02e2a2840121b4f98170fa749f8 pass_rate=100.00% (1/1)
 attempt_distribution:
-  attempts=1 runs=2
-  attempts=2 runs=10
+  attempts=1 runs=118
+  attempts=2 runs=2
 median_attempts_per_task:
-  task_id=gen_add_03cec5300a81 task_hash=f494ce13cc54f6894fd6fb7f0f297214f1cb511cd99113f7b72c405e25b692ac median_attempts=2.00
-  task_id=gen_clamp_737a7ebdfb85 task_hash=701705f1eab224b4ffa22dc1ad38b09f5e60ed69e6e09cb3ac4b83835a60bff6 median_attempts=2.00
-  task_id=gen_mul_af6931f1b73c task_hash=25a2f5d36dd9c732fb4e6b3e7e3e50e95bd7cade1173b1d26a3fa1c09cab710f median_attempts=2.00
-  task_id=gen_sub_7e77e63d1e7c task_hash=200087a98b830ec430a93637fa956c4313d8e41e0a62333e210ccf8df57925cc median_attempts=2.00
-  task_id=gen_ts_generic_identity_b014a68beeae task_hash=d0f5220138a698632f796ce2e2abc0de980fe3012445a07a82a3f6a2c0bf7637 median_attempts=2.00
-  task_id=gen_ts_optional_chaining_3cbe2172d661 task_hash=b71aa70461e2df3dfd8ea309a3a8a6498b561a7dde1afb468c119b88c93559f9 median_attempts=2.00
-  task_id=gen_ts_record_shape_3299a1d4bcee task_hash=049a4bb0709db168554a53a18c83fa8d540236c5cda77d55ca3f07235b2d2e09 median_attempts=2.00
-  task_id=gen_ts_union_narrowing_a307380e8a3c task_hash=fbfe536e5120e877933be85b728d30a107e08f3e7ffb01e1a921016b5d1b54df median_attempts=2.00
-  task_id=golden_add_v1 task_hash=dbf13c7433259463bccc0affd946c08dc296b86a37bf4c05a37a5ab3de4f2377 median_attempts=2.00
-  task_id=golden_inc_v1 task_hash=7875f03a4f2bb7c6c5ea3c913712fa47a5a0b977731d5340779fd5b701b261f7 median_attempts=1.00
-  task_id=golden_mul_v1 task_hash=cf787266d748ee3b30aa635d9ba9c3af7a6bccbcbd042fb03f46ff63e5206344 median_attempts=1.00
-  task_id=ts_add_v1 task_hash=d96fd69edbcb7a9861205cd0b2ef604b39d577a47dcc61283656867f473432f8 median_attempts=2.00
+  task_id=gen_add_142926ee2a31 task_hash=ed22d5139c69724f9ac0ae8d8fe87872c7adfc9382bb32a6bc1c7fa85a4503f0 median_attempts=1.00
+  task_id=gen_add_22fb58fa8df0 task_hash=c21f4bdca05772450821d564b0571f9a7a90d4b30c5caed67b3671c0469e91dc median_attempts=1.00
+  task_id=gen_add_54ff8dedfca0 task_hash=385d9c57cf263449c526d2796db824a9445af6568c5821d9e0b6adbe7c3c68ba median_attempts=1.00
+  task_id=gen_add_657f37148fc4 task_hash=fdfa3afb824c9222aeb71b331a30c47200bdf436e55032018052cdad4c272a77 median_attempts=1.00
+  task_id=gen_add_6688587ad823 task_hash=b223c49368cc571611b547ca76b905874dc6eca0cd374962cd47966be16fb174 median_attempts=1.00
+  task_id=gen_add_9cdb16db7878 task_hash=dc3e57d3af08909abacc35eb85b64f0f8b1cdf9657889795de4966ca3a2e75ac median_attempts=1.00
+  task_id=gen_add_cf3e540ae079 task_hash=1f43f6fe37fadbd6991dc9ba20945bed33fbf68979ed535367be7474ed709672 median_attempts=1.00
+  task_id=gen_add_e3a967f0a782 task_hash=a90dbea5aa3e6967ebf146eebef9a128394995e788ef84a9c0a2a33f7703c757 median_attempts=1.00
+  task_id=gen_add_f8baecfd5000 task_hash=52139ba9f2af2b4927f579ab9434432477c6314acef40fe4709d79deeaa4123a median_attempts=1.00
+  task_id=gen_clamp_037787f58664 task_hash=4e773326dd3f5f938ad9e03cb1b9c2e379578c13736b6c8534b50e6202455cd9 median_attempts=1.00
+  task_id=gen_clamp_26cf5a94b7fd task_hash=183edfc863f5605de6ecbebc850698af9626bd93f05e7a704099338e3fa7e756 median_attempts=1.00
+  task_id=gen_clamp_3acdf9771e3e task_hash=f942b247d3b0045aaa1efccf6ffa29286fc44c00d46f948d6a1394a8c5e32beb median_attempts=1.00
+  task_id=gen_clamp_4d4f0835dbf6 task_hash=78f561a9a43a944fa46ba115d2d1b9f2e0a8d4272fdccb59bcb8e9899c2bed64 median_attempts=1.00
+  task_id=gen_clamp_90a9236cbc4f task_hash=e68870097ca8d7794e66507140699d247a40e423ba1dc3d83bd8268fd1f86903 median_attempts=1.00
+  task_id=gen_clamp_c0b0618d1932 task_hash=318678073670743c89886c8d1e5574c8214e22b314ca1827a5ba72f2c51c2c37 median_attempts=1.00
+  task_id=gen_clamp_d21d458525fe task_hash=7c325915d3b30bf3fa1dedc3de84639633cbd92e92e0e6e98385a955257b4b37 median_attempts=1.00
+  task_id=gen_clamp_e8010ab98afc task_hash=09b31cd140eb22bd80411847c8576a790a75acaa66ebbaab9e1fb04e0e55d2fb median_attempts=1.00
+  task_id=gen_clamp_e9ef21449aa3 task_hash=1b4fcc621ed842e472de98ee219a219d5885c20013e6624ce977f044844841bb median_attempts=1.00
+  task_id=gen_is_palindrome_033682ca70fd task_hash=202f669dc083e91b1a6521cd6d79c8f6db1f508ff1b48420b79e11a3235c0de2 median_attempts=1.00
+  task_id=gen_is_palindrome_6ec9080914a0 task_hash=2b27ec74a84f97bf70f81da1b2dc9456e1e1982de0d78e51e770026e48c2dde9 median_attempts=1.00
+  task_id=gen_is_palindrome_91527d7db025 task_hash=0dba9eface6659c5ab0f45b35380d81411a47f785babe4ae7392e7922b7a5922 median_attempts=1.00
+  task_id=gen_is_palindrome_9274d0e97bd0 task_hash=df25535d19301175d41c442b653499a2e69889abffd38221fbb266119841d524 median_attempts=1.00
+  task_id=gen_is_palindrome_962b7a82b1e9 task_hash=2b27ec74a84f97bf70f81da1b2dc9456e1e1982de0d78e51e770026e48c2dde9 median_attempts=1.00
+  task_id=gen_is_palindrome_97a651d73ac6 task_hash=719600c53bfc379b46479bf12f084f6a2b98ad1226f649a57388f143087068a2 median_attempts=1.00
+  task_id=gen_is_palindrome_ac42c84d89b7 task_hash=90aa605c9e0ad5fdf29c4f3a5b4765c931a54083aaa077c749daed64c1a21937 median_attempts=1.00
+  task_id=gen_is_palindrome_de6f097c3447 task_hash=5bae4025382c2e4cda5998bb7a4e43137408e570a38f6836044bb0d0f74a5884 median_attempts=1.00
+  task_id=gen_mul_129f55db9e44 task_hash=da2b6fda601044466a345e2b983fae74e480a7fb84d5f4e54b4f096f272f57d1 median_attempts=1.00
+  task_id=gen_mul_1f1be9dec560 task_hash=64b0de37de201d4a5d8a3d3f249b2da98ff7e727ab77d66b8020acd349b848ca median_attempts=1.00
+  task_id=gen_mul_3757138ae467 task_hash=19cf6d133586f9354afee227bf96fa2120cae164a297792d9f2f4424c5788f8b median_attempts=1.00
+  task_id=gen_mul_419e59c51464 task_hash=69d6b73ef6d8031ebee827e671440575c21856859e4c38fb74e1b159d801e86d median_attempts=1.00
+  task_id=gen_mul_4d1eb83e3e24 task_hash=ff55461e34c6f498ac9cc3adc1f66d99fa53f59409dfa78a80d4621097e9d9c5 median_attempts=1.00
+  task_id=gen_mul_7a8ad0b2247b task_hash=13607b9a710aa304210e89730f3b8559d1faad11f7c0cb78a628e68e5da7f3d9 median_attempts=1.00
+  task_id=gen_mul_7fdd9c7d8b7e task_hash=078bbb2e947e2fcab5c672001961feb69786a2e7fbe22296bd577ce45858ba75 median_attempts=1.00
+  task_id=gen_mul_c8199443ea16 task_hash=3066a320b32dbc8117b12d2f99148fc0ffa90ca4e33bfb3d989f9e0ab02d3f84 median_attempts=1.00
+  task_id=gen_mul_e4f30bb03568 task_hash=cea201eda9c359264f0cfd099d63d60e623d8fc1dfad896d973bab2a974e6322 median_attempts=1.00
+  task_id=gen_parse_json_field_1a909db8b8dc task_hash=94dd36d9b4f713d9a743e5aa91a1b85035fb2073dd174defd05221fb0c31b040 median_attempts=1.00
+  task_id=gen_parse_json_field_2bca122d93c1 task_hash=84610743b4282b71fad4a488ce87bbd4553c9943255164c2fd8090fe6edb58c1 median_attempts=1.00
+  task_id=gen_parse_json_field_2dfd9654096d task_hash=34dbb5e09a72bfe9a072abaf3f24c8a6f42d93dcf2b922468d9fd2574a9e3a8e median_attempts=1.00
+  task_id=gen_parse_json_field_39cd77d8f731 task_hash=fea41e85136f24c7915ce6592f3390887c1606101ac21604739de76d83f6606c median_attempts=1.00
+  task_id=gen_parse_json_field_4f4eb710aaa8 task_hash=84610743b4282b71fad4a488ce87bbd4553c9943255164c2fd8090fe6edb58c1 median_attempts=1.00
+  task_id=gen_parse_json_field_53e8e1e96485 task_hash=84610743b4282b71fad4a488ce87bbd4553c9943255164c2fd8090fe6edb58c1 median_attempts=1.00
+  task_id=gen_parse_json_field_5517fbd46699 task_hash=fcb1754ab7f493a89b260d177507ce013f5ff39557d0c1cc90e3c09d7adb360c median_attempts=1.00
+  task_id=gen_parse_json_field_9ffd8899e724 task_hash=94dd36d9b4f713d9a743e5aa91a1b85035fb2073dd174defd05221fb0c31b040 median_attempts=1.00
+  task_id=gen_regex_findall_6c658f8419f8 task_hash=5d55983d73db33de9003313c737ebaa1b6e54057048125cdd962dc4d7fb7e225 median_attempts=1.00
+  task_id=gen_regex_findall_86483f0e5840 task_hash=37721c536c560eb374b88a5f6228e1aef878d065aa4720e78a1595fec7f59700 median_attempts=2.00
+  task_id=gen_regex_findall_aac87e693c0d task_hash=5106d51195aefdc3a858d1ffcaf274cc9a783ed49a07403a167d1d52ecc68cf9 median_attempts=1.00
+  task_id=gen_regex_findall_c4d26b27453d task_hash=5d55983d73db33de9003313c737ebaa1b6e54057048125cdd962dc4d7fb7e225 median_attempts=1.00
+  task_id=gen_regex_findall_ca8b4b44c050 task_hash=5106d51195aefdc3a858d1ffcaf274cc9a783ed49a07403a167d1d52ecc68cf9 median_attempts=1.00
+  task_id=gen_regex_findall_cfbfa658eb43 task_hash=37721c536c560eb374b88a5f6228e1aef878d065aa4720e78a1595fec7f59700 median_attempts=2.00
+  task_id=gen_regex_findall_efb99a386d1a task_hash=5106d51195aefdc3a858d1ffcaf274cc9a783ed49a07403a167d1d52ecc68cf9 median_attempts=1.00
+  task_id=gen_regex_findall_f797afaf80ab task_hash=5d55983d73db33de9003313c737ebaa1b6e54057048125cdd962dc4d7fb7e225 median_attempts=1.00
+  task_id=gen_sub_00437a29fdaa task_hash=5aff2f1275efce07e004cef76844ee7bf2e466b9bee4743043b08d0dd466f59f median_attempts=1.00
+  task_id=gen_sub_1fd400560d2f task_hash=21e9e07857c614da6885cc2c327a1299a44a9b4f5cc19b15af67a4249834cc5e median_attempts=1.00
+  task_id=gen_sub_2c5303edcf14 task_hash=ceca9db9e666f9628c9de061e8466d51b27c04df4c6b6bb50f032562e9671453 median_attempts=1.00
+  task_id=gen_sub_46d3a50d6636 task_hash=edd13af56aeb159b820f955440c3513d6cf361959bb45768a4b29ed87292f3a1 median_attempts=1.00
+  task_id=gen_sub_727fcfb849fc task_hash=ec1f2096ad417ba3d81f26190e5e428d10d72087c5eff9f52182da41d20b2d99 median_attempts=1.00
+  task_id=gen_sub_a12d0184929c task_hash=9997fa19960ba6404675e111336b3da773170bbbe0f26644a87963f5f517eda2 median_attempts=1.00
+  task_id=gen_sub_c76a3ad15315 task_hash=6475ee2f64fde8b12c52aa117fe1d2d8408af4095dd5c0601e94d0bd0374a39f median_attempts=1.00
+  task_id=gen_sub_dd101b134061 task_hash=95bcf404ce480b434ca2db67a38173ce718d52e941d357ac5620d6f857edb1b8 median_attempts=1.00
+  task_id=gen_sub_f8e512c06267 task_hash=e540183f7f127fb9dc7a39a8993edd8a389bd910af1a1966b35268ae533867b4 median_attempts=1.00
+  task_id=gen_ts_generic_identity_1bcc24fb7a2f task_hash=0252b94b80717f654327e006eba5c3d814359a3296e384fd012ee0659b462636 median_attempts=1.00
+  task_id=gen_ts_generic_identity_2d91daf18362 task_hash=7605bae32493798280c1794d21a3f03ec7532a7f666b51315a661c99bf7adbd7 median_attempts=1.00
+  task_id=gen_ts_generic_identity_31be8ea17adb task_hash=23fc46fc74e432c696f35d5d0a9b2993b0b07e7581554e603f4375ffaecc0502 median_attempts=1.00
+  task_id=gen_ts_generic_identity_54d32711036f task_hash=b7d27b78fb29f761f44c1885558816885a2f2deaf1384bc63fbde8942226d614 median_attempts=1.00
+  task_id=gen_ts_generic_identity_7249dfc26e0e task_hash=7bc7277fac9b22d5dcffd48534e0cd0e1c560e5fbcd31f1f110062c0432e560e median_attempts=1.00
+  task_id=gen_ts_generic_identity_76c6d5abce72 task_hash=5f8b494542b721cf182162a5b4b82e8034fcd0c8938c95f2f3358b9db8149f4a median_attempts=1.00
+  task_id=gen_ts_generic_identity_b014a68beeae task_hash=94b41541a9c35dd055925bd75211867061659e7bb826585d11378b67e9aa7adf median_attempts=1.00
+  task_id=gen_ts_generic_identity_ba4ebe2436b8 task_hash=0fb6ff9f6fbbae76b295ebddf6cce397b693314244fe19993bde5d75fe09a1ad median_attempts=1.00
+  task_id=gen_ts_generic_identity_d925379ecbe0 task_hash=0fb6ff9f6fbbae76b295ebddf6cce397b693314244fe19993bde5d75fe09a1ad median_attempts=1.00
+  task_id=gen_ts_generic_identity_de15c3435c54 task_hash=4e9be4bffc5aafd34a9fd11897cf4c372e373b2bf3d694d5a0fa9afa48a8a07b median_attempts=1.00
+  task_id=gen_ts_generic_identity_e1b36cba9a9f task_hash=e6f827383189507f069febe4cee6e6f1d6f598fb812002663126bf4f51affd93 median_attempts=1.00
+  task_id=gen_ts_generic_identity_fbcec1537752 task_hash=4586a60163e3f02408c865f7c9eba65f797a62ad074831c509e8ceab6b111823 median_attempts=1.00
+  task_id=gen_ts_null_undefined_strict_0fc6ed97cd67 task_hash=e0babcb3f14b55d3f10d9585859bc79296f676812b7a5d9e977e3c490a7c289d median_attempts=1.00
+  task_id=gen_ts_null_undefined_strict_2739d5275101 task_hash=1890ad1d5d599c52d2b195ee5486a78b241e9708821f62b4132c03e25b54af49 median_attempts=1.00
+  task_id=gen_ts_null_undefined_strict_46367c00b2f9 task_hash=e0babcb3f14b55d3f10d9585859bc79296f676812b7a5d9e977e3c490a7c289d median_attempts=1.00
+  task_id=gen_ts_null_undefined_strict_548d61c2e401 task_hash=e0babcb3f14b55d3f10d9585859bc79296f676812b7a5d9e977e3c490a7c289d median_attempts=1.00
+  task_id=gen_ts_null_undefined_strict_5b7b0b4ba421 task_hash=e0babcb3f14b55d3f10d9585859bc79296f676812b7a5d9e977e3c490a7c289d median_attempts=1.00
+  task_id=gen_ts_null_undefined_strict_64e0dbfa28df task_hash=90826337f2e344bdfbf2fa460560ee086263a32bf57ec7cd61b63d2207e9605a median_attempts=1.00
+  task_id=gen_ts_null_undefined_strict_66ea74996fb5 task_hash=90826337f2e344bdfbf2fa460560ee086263a32bf57ec7cd61b63d2207e9605a median_attempts=1.00
+  task_id=gen_ts_null_undefined_strict_6e729fd88b21 task_hash=e0babcb3f14b55d3f10d9585859bc79296f676812b7a5d9e977e3c490a7c289d median_attempts=1.00
+  task_id=gen_ts_null_undefined_strict_87d6f7b7f4f6 task_hash=1890ad1d5d599c52d2b195ee5486a78b241e9708821f62b4132c03e25b54af49 median_attempts=1.00
+  task_id=gen_ts_null_undefined_strict_8a345a421cf2 task_hash=90826337f2e344bdfbf2fa460560ee086263a32bf57ec7cd61b63d2207e9605a median_attempts=1.00
+  task_id=gen_ts_null_undefined_strict_e58f37109a6a task_hash=90826337f2e344bdfbf2fa460560ee086263a32bf57ec7cd61b63d2207e9605a median_attempts=1.00
+  task_id=gen_ts_null_undefined_strict_f06e9cb81aad task_hash=e0babcb3f14b55d3f10d9585859bc79296f676812b7a5d9e977e3c490a7c289d median_attempts=1.00
+  task_id=gen_ts_optional_chaining_0b529428372c task_hash=986ce7618ea592eccdb26831ad1909f268309e4bdc2e269248787e3c1896bc0f median_attempts=1.00
+  task_id=gen_ts_optional_chaining_17bb97a35168 task_hash=986ce7618ea592eccdb26831ad1909f268309e4bdc2e269248787e3c1896bc0f median_attempts=1.00
+  task_id=gen_ts_optional_chaining_3cbe2172d661 task_hash=986ce7618ea592eccdb26831ad1909f268309e4bdc2e269248787e3c1896bc0f median_attempts=1.00
+  task_id=gen_ts_optional_chaining_513cede36ddd task_hash=31959225f3b11e0282f9a48fe3ddea773afda6a753e7b0f53e41027983d56a73 median_attempts=1.00
+  task_id=gen_ts_optional_chaining_524471f98845 task_hash=986ce7618ea592eccdb26831ad1909f268309e4bdc2e269248787e3c1896bc0f median_attempts=1.00
+  task_id=gen_ts_optional_chaining_6caad1847aab task_hash=4543cbda93a1541e3cfd67ffaf8cac99fccdf235622bdefb7b67a2620a295722 median_attempts=1.00
+  task_id=gen_ts_optional_chaining_9c40d05bcbf2 task_hash=4543cbda93a1541e3cfd67ffaf8cac99fccdf235622bdefb7b67a2620a295722 median_attempts=1.00
+  task_id=gen_ts_optional_chaining_9ffd1ddf0880 task_hash=31959225f3b11e0282f9a48fe3ddea773afda6a753e7b0f53e41027983d56a73 median_attempts=1.00
+  task_id=gen_ts_optional_chaining_a69c2aea5cff task_hash=4543cbda93a1541e3cfd67ffaf8cac99fccdf235622bdefb7b67a2620a295722 median_attempts=1.00
+  task_id=gen_ts_optional_chaining_ab37eac4f3e6 task_hash=986ce7618ea592eccdb26831ad1909f268309e4bdc2e269248787e3c1896bc0f median_attempts=1.00
+  task_id=gen_ts_optional_chaining_b27fd7db492c task_hash=986ce7618ea592eccdb26831ad1909f268309e4bdc2e269248787e3c1896bc0f median_attempts=1.00
+  task_id=gen_ts_optional_chaining_c8c8cb42d012 task_hash=4543cbda93a1541e3cfd67ffaf8cac99fccdf235622bdefb7b67a2620a295722 median_attempts=1.00
+  task_id=gen_ts_record_shape_076397d13cd1 task_hash=88832962cfbd4e254e66e5edcd2839e1395a6a437a39e77faabaff4e07e14e1f median_attempts=1.00
+  task_id=gen_ts_record_shape_2e9a77e57869 task_hash=8f4d63a39eb2fe8291dae6ba3098ad3d7e0b9e7d3997540d183dd556f6850dee median_attempts=1.00
+  task_id=gen_ts_record_shape_328cff96f8a4 task_hash=e5dc888c9dd397fa65dae94811ba63d24a64f99202f5257df66791a3a695e126 median_attempts=1.00
+  task_id=gen_ts_record_shape_5e68e037790c task_hash=94a7ee82f7deccc38d9777e66d2516b17e98cb92dd13dc8c4af2833a1045b8df median_attempts=1.00
+  task_id=gen_ts_record_shape_7885d3b424e0 task_hash=3bdd1a0a17f246cf75dc9cbcd15f986a9ffdd635eddf51d393a39399c7a47f5b median_attempts=1.00
+  task_id=gen_ts_record_shape_847f14c817f7 task_hash=a32c7e7789a4bb08a6ddbb22f8f80910caffa4779a9bdd06887475a7bb38bec4 median_attempts=1.00
+  task_id=gen_ts_record_shape_9c24d6d83bee task_hash=a7cd0cd2005a73a66880db03d8b629297df74e900e65ed0adc6c5c992722c937 median_attempts=1.00
+  task_id=gen_ts_record_shape_9f0f0653ab51 task_hash=5c1c92d7e3137569a4143d383ab4835592e57555c6247115fd8520104100c7f3 median_attempts=1.00
+  task_id=gen_ts_record_shape_aa371e57c4f1 task_hash=22189566c302cccd3ee69d9d26acefce8de33594370a2db4bb81bfb436825067 median_attempts=1.00
+  task_id=gen_ts_record_shape_bee941a9e03d task_hash=88832962cfbd4e254e66e5edcd2839e1395a6a437a39e77faabaff4e07e14e1f median_attempts=1.00
+  task_id=gen_ts_record_shape_e8f7934513d0 task_hash=3bdd1a0a17f246cf75dc9cbcd15f986a9ffdd635eddf51d393a39399c7a47f5b median_attempts=1.00
+  task_id=gen_ts_record_shape_ed0608ec974e task_hash=5024feea501896748c4160be17c13ae75a4b2cdbefda912d7b8a22210a9611b2 median_attempts=1.00
+  task_id=gen_ts_union_narrowing_0bb0897eb5c3 task_hash=b8b4656ca467f8cd147be0cb2694f6d49feac06f4ed7797230a4cd1029a22545 median_attempts=1.00
+  task_id=gen_ts_union_narrowing_2e4dd54e34be task_hash=d63eef6ce6eab4f18ae0a25a7848d3e8007a144b2cb154dbbae2b73986c36869 median_attempts=1.00
+  task_id=gen_ts_union_narrowing_34d80d61ce16 task_hash=229eb8a2dfc2bddc538ee6cb8842754d8bcd0b92e765878cc2d9af2c38d3d6b4 median_attempts=1.00
+  task_id=gen_ts_union_narrowing_371ca652d307 task_hash=5ce9d263c7ddfa12d054e4ed82068da2d37e036624fab38a76aa63ca5357da90 median_attempts=1.00
+  task_id=gen_ts_union_narrowing_6493040299db task_hash=dce807ee9c16833e04b3dccb9127a959cb452b9d03c0fac66183f554e2590386 median_attempts=1.00
+  task_id=gen_ts_union_narrowing_6def944b0e67 task_hash=7f8c09b6db7f5f33cb47f0abaa46c365d1bf5354ec21a9915f17b73f7b7885bc median_attempts=1.00
+  task_id=gen_ts_union_narrowing_7cdd1c9639d1 task_hash=0941db5ebf4ce435a47a6f39ff4ddaf8aea080dbdacbcb352389deeb3b234419 median_attempts=1.00
+  task_id=gen_ts_union_narrowing_825fd938dcc8 task_hash=2554ab382e5d264c7b39bd3a5fd2ceeddc41e800b54364f016908997cfda816f median_attempts=1.00
+  task_id=gen_ts_union_narrowing_827f6d7a228b task_hash=f42a312851e05e8cfeeb4729d1edf301e9e30c093cc1a057f903280d22ab9607 median_attempts=1.00
+  task_id=golden_add_v1 task_hash=0973c0c7216da4405b8fb7d7788128e923efe6c65dca3700068f18f0446a3d38 median_attempts=1.00
+  task_id=golden_inc_v1 task_hash=5bd5fe82fe9db59e2a8366770ed8779649df9982c23426ef9b34063064956466 median_attempts=1.00
+  task_id=golden_mul_v1 task_hash=5342c58da3ad0a3ffeef5e974f0f3c620c1ef02e2a2840121b4f98170fa749f8 median_attempts=1.00
 failure_type_breakdown:
-  assertion_fail=7
-  ts_type_error=3
+  assertion_fail=86
+  runtime_error=28
+  ts_syntax_error=12
   syntax_error=1
 verifier_stage_breakdown:
-  unit_test=7
-  tsc=3
+  unit_test=114
+  tsc=12
   syntax=1
 top20_error_signature:
-      1  AssertionError:case 1 mismatch: args=(17, 15), expected=32, actual=2
-      1  AssertionError:case 1 mismatch: args=(-7, -4, 9), expected=-4, actual=-7
-      1  AssertionError:case 1 mismatch: args=(11, -11), expected=-121, actual=0
-      1  AssertionError:case 1 mismatch: args=(-20, -3), expected=-17, actual=-23
-      1  AssertionError:case 1 mismatch: args=(1, 2), expected=3, actual=-1
-      1  SyntaxError:expected ':' (golden_inc_v1.py, line 1)
-      1  AssertionError:case 1 mismatch: expected="z" actual=undefined
-      1  TS2322:Type 'string | undefined' is not assignable to type 'string'.
-      1  TS2322:Type 'number' is not assignable to type 'string'.
-      1  TS2322:Type 'string | number' is not assignable to type 'number'.
-      1  AssertionError:case 1 mismatch: expected=5 actual=-1
-signature_coverage=9.09% (1/11)
+     12  TS1005:<path>
+     12  RuntimeError:case 2 raised TypeError: Cannot read properties of null (reading 'trim')
+     12  AssertionError:case 2 mismatch: expected="" actual=undefined
+      8  NameError:case 1 raised name 'json' is not defined
+      8  NameError:case 1 raised name 're' is not defined
+      8  AssertionError:case 1 mismatch: args=('\\\\d+', 'a1 b22 c333'), expected=['1', '22', '333'], actual=[]
+      3  AssertionError:case 3 mismatch: args=('level',), expected=True, actual=False
+      2  AssertionError:case 2 mismatch: args=('level',), expected=True, actual=False
+      2  AssertionError:case 1 mismatch: expected="6:eve" actual=6
+      2  AssertionError:case 1 mismatch: expected="7:eve" actual=7
+      1  AssertionError:case 1 mismatch: args=(0, 6), expected=6, actual=-6
+      1  AssertionError:case 1 mismatch: args=(-1, -7), expected=-8, actual=6
+      1  AssertionError:case 1 mismatch: args=(-19, -19), expected=-38, actual=0
+      1  AssertionError:case 2 mismatch: args=(-9, -1), expected=-10, actual=-8
+      1  AssertionError:case 1 mismatch: args=(-15, -20), expected=-35, actual=5
+      1  AssertionError:case 1 mismatch: args=(-17, -10), expected=-27, actual=-7
+      1  AssertionError:case 1 mismatch: args=(17, -16), expected=1, actual=33
+      1  AssertionError:case 1 mismatch: args=(-15, -3), expected=-18, actual=-12
+      1  AssertionError:case 1 mismatch: args=(10, -4), expected=6, actual=14
+      1  AssertionError:case 1 mismatch: args=(-9, -6, 2), expected=-6, actual=-9
+signature_coverage=5.88% (4/68)
 top_uncovered_signatures:
-      1  AssertionError:case 1 mismatch: args=(-20, -3), expected=-17, actual=-23
-      1  AssertionError:case 1 mismatch: args=(-7, -4, 9), expected=-4, actual=-7
-      1  AssertionError:case 1 mismatch: args=(1, 2), expected=3, actual=-1
-      1  AssertionError:case 1 mismatch: args=(11, -11), expected=-121, actual=0
-      1  AssertionError:case 1 mismatch: args=(17, 15), expected=32, actual=2
-      1  AssertionError:case 1 mismatch: expected="z" actual=undefined
-      1  AssertionError:case 1 mismatch: expected=5 actual=-1
-      1  TS2322:Type 'number' is not assignable to type 'string'.
-      1  TS2322:Type 'string | number' is not assignable to type 'number'.
-      1  TS2322:Type 'string | undefined' is not assignable to type 'string'.
+     12  AssertionError:case 2 mismatch: expected="" actual=undefined
+     12  RuntimeError:case 2 raised TypeError: Cannot read properties of null (reading 'trim')
+     12  TS1005:<path>
+      3  AssertionError:case 3 mismatch: args=('level',), expected=True, actual=False
+      2  AssertionError:case 1 mismatch: expected="6:eve" actual=6
+      2  AssertionError:case 1 mismatch: expected="7:eve" actual=7
+      2  AssertionError:case 2 mismatch: args=('level',), expected=True, actual=False
+      1  AssertionError:case 1 mismatch: args=('level',), expected=True, actual=False
+      1  AssertionError:case 1 mismatch: args=('noon',), expected=True, actual=False
+      1  AssertionError:case 1 mismatch: args=(-1, -7), expected=-8, actual=6
+      1  AssertionError:case 1 mismatch: args=(-1, 9), expected=-10, actual=8
+      1  AssertionError:case 1 mismatch: args=(-10, -7, 4), expected=-7, actual=-10
+      1  AssertionError:case 1 mismatch: args=(-10, -7, 5), expected=-7, actual=-10
+      1  AssertionError:case 1 mismatch: args=(-12, 8), expected=-96, actual=-4
+      1  AssertionError:case 1 mismatch: args=(-15, -20), expected=-35, actual=5
+      1  AssertionError:case 1 mismatch: args=(-15, -3), expected=-18, actual=-12
+      1  AssertionError:case 1 mismatch: args=(-17, -10), expected=-27, actual=-7
+      1  AssertionError:case 1 mismatch: args=(-19, -19), expected=-38, actual=0
+      1  AssertionError:case 1 mismatch: args=(-19, -2), expected=-17, actual=-21
+      1  AssertionError:case 1 mismatch: args=(-4, -1, 3), expected=-1, actual=-4
 patch_success_rate_by_patcher:
+  patcher_id=missing_import_patcher success_rate=87.50% (14/16)
   patcher_id=syntax_fix_patcher success_rate=100.00% (1/1)
-solved_mode_split: via_patchers=1 (8.33%) via_new_attempt=11 (91.67%) unsolved=0
-attempts_saved_by_patchers_approx=1
+solved_mode_split: via_patchers=15 (12.71%) via_new_attempt=103 (87.29%) unsolved=2
+attempts_saved_by_patchers_approx=15

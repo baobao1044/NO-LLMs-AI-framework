@@ -1,76 +1,128 @@
 {
-  "generated_at_utc": "2026-02-09T05:37:56.455187+00:00",
+  "generated_at_utc": "2026-02-09T16:40:24.869364+00:00",
   "source_log": "logs/agent_runs.jsonl",
-  "records": 23,
-  "runs": 12,
-  "overall_pass_rate": 1.0,
+  "records": 242,
+  "runs": 120,
+  "overall_pass_rate": 0.991667,
   "pass_rate_by_language": {
-    "py": 1.0,
+    "py": 0.984127,
     "ts": 1.0
   },
   "timeout_rate": 0.0,
   "flaky_groups_count": 0,
-  "signature_coverage": 0.090909,
+  "signature_coverage": 0.058824,
   "signature_coverage_by_language": {
-    "py": 0.166667,
+    "py": 0.085106,
     "ts": 0.0
   },
   "top_uncovered_signatures": [
     {
-      "language": "py",
-      "error_signature": "AssertionError:case 1 mismatch: args=(-20, -3), expected=-17, actual=-23",
-      "count": 1
-    },
-    {
-      "language": "py",
-      "error_signature": "AssertionError:case 1 mismatch: args=(-7, -4, 9), expected=-4, actual=-7",
-      "count": 1
-    },
-    {
-      "language": "py",
-      "error_signature": "AssertionError:case 1 mismatch: args=(1, 2), expected=3, actual=-1",
-      "count": 1
-    },
-    {
-      "language": "py",
-      "error_signature": "AssertionError:case 1 mismatch: args=(11, -11), expected=-121, actual=0",
-      "count": 1
-    },
-    {
-      "language": "py",
-      "error_signature": "AssertionError:case 1 mismatch: args=(17, 15), expected=32, actual=2",
-      "count": 1
+      "language": "ts",
+      "error_signature": "AssertionError:case 2 mismatch: expected=\"\" actual=undefined",
+      "count": 12
     },
     {
       "language": "ts",
-      "error_signature": "AssertionError:case 1 mismatch: expected=\"z\" actual=undefined",
-      "count": 1
+      "error_signature": "RuntimeError:case 2 raised TypeError: Cannot read properties of null (reading 'trim')",
+      "count": 12
     },
     {
       "language": "ts",
-      "error_signature": "AssertionError:case 1 mismatch: expected=5 actual=-1",
-      "count": 1
+      "error_signature": "TS1005:<path>",
+      "count": 12
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=('noon',), expected=True, actual=False",
+      "count": 2
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 2 mismatch: args=('level',), expected=True, actual=False",
+      "count": 2
     },
     {
       "language": "ts",
-      "error_signature": "TS2322:Type 'number' is not assignable to type 'string'.",
-      "count": 1
+      "error_signature": "AssertionError:case 1 mismatch: expected=\"2:alice\" actual=2",
+      "count": 2
     },
     {
       "language": "ts",
-      "error_signature": "TS2322:Type 'string | number' is not assignable to type 'number'.",
-      "count": 1
+      "error_signature": "AssertionError:case 1 mismatch: expected=\"6:alice\" actual=6",
+      "count": 2
     },
     {
       "language": "ts",
-      "error_signature": "TS2322:Type 'string | undefined' is not assignable to type 'string'.",
+      "error_signature": "AssertionError:case 1 mismatch: expected=\"7:bob\" actual=7",
+      "count": 2
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=('level',), expected=True, actual=False",
+      "count": 1
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-1, -18), expected=17, actual=-19",
+      "count": 1
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-10, -18), expected=8, actual=-28",
+      "count": 1
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-10, -7, 10), expected=-7, actual=-10",
+      "count": 1
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-12, -20), expected=8, actual=-32",
+      "count": 1
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-13, -10, 1), expected=-10, actual=-13",
+      "count": 1
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-13, -10, 5), expected=-10, actual=-13",
+      "count": 1
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-14, 0), expected=0, actual=-14",
+      "count": 1
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-15, 15), expected=-225, actual=0",
+      "count": 1
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-17, 17), expected=0, actual=-34",
+      "count": 1
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-20, -6), expected=120, actual=-26",
+      "count": 1
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-3, 0, 2), expected=0, actual=-3",
       "count": 1
     }
   ],
   "patcher_activity_by_id": {
+    "missing_import_patcher": 16,
     "syntax_fix_patcher": 1
   },
   "patcher_success_rate_by_id": {
+    "missing_import_patcher": 0.9375,
     "syntax_fix_patcher": 1.0
   }
 }

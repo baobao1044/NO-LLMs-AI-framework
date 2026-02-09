@@ -1,0 +1,13 @@
+{
+  "name": "no-llms-ts-sandbox",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "typescript": "5.6.3"
+  },
+  "scripts": {
+    "check": "npx --yes --package typescript@5.6.3 tsc --noEmit -p tsconfig.json",
+    "build": "npx --yes --package typescript@5.6.3 tsc -p tsconfig.json",
+    "test": "node dist/runner.js"
+  }
+}

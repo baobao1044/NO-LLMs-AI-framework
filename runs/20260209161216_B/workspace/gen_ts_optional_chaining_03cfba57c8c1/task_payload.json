@@ -1,0 +1,1 @@
+{"function_name": "pick_user_name", "testcases": [{"inputs": [{"user": {"name": "bob"}}], "expected": "bob"}, {"inputs": [{"user": {}}], "expected": ""}, {"inputs": [null], "expected": ""}]}

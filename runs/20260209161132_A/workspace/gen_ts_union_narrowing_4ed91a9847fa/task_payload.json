@@ -1,0 +1,1 @@
+{"function_name": "union_to_number", "testcases": [{"inputs": ["81"], "expected": 81}, {"inputs": [6], "expected": 6}]}

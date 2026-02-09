@@ -1,0 +1,139 @@
+{
+  "generated_at_utc": "2026-02-09T16:29:35.828479+00:00",
+  "date": "20260209162857",
+  "mode": "B",
+  "seed": 20260229423066,
+  "executed_tasks": 120,
+  "proposer_enabled": true,
+  "budget": {
+    "max_tasks_per_day": 120,
+    "max_attempts_per_task": 8,
+    "max_total_seconds": 2400.0,
+    "elapsed_seconds": 20.806792
+  },
+  "run_count": 120,
+  "overall_pass_rate": 0.991667,
+  "pass_rate_by_language": {
+    "py": 0.984127,
+    "ts": 1.0
+  },
+  "mean_attempts": 1.008333,
+  "signature_coverage": 0.058824,
+  "top_uncovered_signatures": [
+    {
+      "language": "ts",
+      "error_signature": "AssertionError:case 2 mismatch: expected=\"\" actual=undefined",
+      "count": 12
+    },
+    {
+      "language": "ts",
+      "error_signature": "RuntimeError:case 2 raised TypeError: Cannot read properties of null (reading 'trim')",
+      "count": 12
+    },
+    {
+      "language": "ts",
+      "error_signature": "TS1005:<path>",
+      "count": 12
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 3 mismatch: args=('level',), expected=True, actual=False",
+      "count": 3
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=('noon',), expected=True, actual=False",
+      "count": 2
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 2 mismatch: args=('noon',), expected=True, actual=False",
+      "count": 2
+    },
+    {
+      "language": "ts",
+      "error_signature": "AssertionError:case 1 mismatch: expected=\"8:eve\" actual=8",
+      "count": 2
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-11, -15), expected=4, actual=-26",
+      "count": 1
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-11, -8, 1), expected=-8, actual=-11",
+      "count": 1
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-12, -9, 6), expected=-9, actual=-12",
+      "count": 1
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-13, -15), expected=-28, actual=2",
+      "count": 1
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-13, -15), expected=195, actual=-28",
+      "count": 1
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-16, -3), expected=48, actual=-19",
+      "count": 1
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-17, -16), expected=272, actual=-33",
+      "count": 1
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-18, 8), expected=-26, actual=-10",
+      "count": 1
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-19, -1), expected=-18, actual=-20",
+      "count": 1
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-4, -1, 6), expected=-1, actual=-4",
+      "count": 1
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-4, -6), expected=2, actual=-10",
+      "count": 1
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-5, -2, 8), expected=-2, actual=-5",
+      "count": 1
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-6, -3, 5), expected=-3, actual=-6",
+      "count": 1
+    }
+  ],
+  "timeout_rate": 0.0,
+  "flaky_groups_count": 0,
+  "attempts_saved_by_patchers_approx": 16,
+  "replay_match": 242,
+  "replay_eligible": 242,
+  "replay_match_rate": 100.0,
+  "env_fingerprint_mismatch_count": 0,
+  "unreplayable_proposer_missing_code": 0,
+  "proposer_budget_spent": {
+    "calls": 104,
+    "seconds": 2.672735,
+    "calls_by_proposer": {
+      "codex_proposer": 104
+    }
+  }
+}

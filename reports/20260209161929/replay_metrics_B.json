@@ -1,0 +1,102 @@
+{
+  "records": 245,
+  "replay_eligible": 245,
+  "replay_match": 245,
+  "replay_match_rate": 100.0,
+  "unreplayable_lossy": 0,
+  "unreplayable_proposer_missing_code": 0,
+  "timeout_rate": 0.0,
+  "top_error_signature": [
+    {
+      "error_signature": "TS1005:<path>",
+      "count": 12
+    },
+    {
+      "error_signature": "RuntimeError:case 2 raised TypeError: Cannot read properties of null (reading 'trim')",
+      "count": 12
+    },
+    {
+      "error_signature": "AssertionError:case 2 mismatch: expected=\"\" actual=undefined",
+      "count": 12
+    },
+    {
+      "error_signature": "NameError:case 1 raised name 'json' is not defined",
+      "count": 8
+    },
+    {
+      "error_signature": "NameError:case 1 raised name 're' is not defined",
+      "count": 8
+    },
+    {
+      "error_signature": "AssertionError:case 1 mismatch: args=('\\\\\\\\d+', 'a1 b22 c333'), expected=['1', '22', '333'], actual=[]",
+      "count": 8
+    },
+    {
+      "error_signature": "AssertionError:case 1 mismatch: args=('noon',), expected=True, actual=False",
+      "count": 4
+    },
+    {
+      "error_signature": "AssertionError:case 1 mismatch: expected=\"2:eve\" actual=2",
+      "count": 3
+    },
+    {
+      "error_signature": "AssertionError:case 1 mismatch: args=(-17, -3), expected=-20, actual=-14",
+      "count": 2
+    },
+    {
+      "error_signature": "AssertionError:case 1 mismatch: args=(-8, -5, 1), expected=-5, actual=-8",
+      "count": 2
+    },
+    {
+      "error_signature": "AssertionError:case 1 mismatch: args=(-11, -8, 3), expected=-8, actual=-11",
+      "count": 2
+    },
+    {
+      "error_signature": "AssertionError:case 1 mismatch: args=('level',), expected=True, actual=False",
+      "count": 2
+    },
+    {
+      "error_signature": "AssertionError:case 2 mismatch: args=('noon',), expected=True, actual=False",
+      "count": 2
+    },
+    {
+      "error_signature": "AssertionError:case 1 mismatch: expected=\"8:eve\" actual=8",
+      "count": 2
+    },
+    {
+      "error_signature": "AssertionError:case 1 mismatch: expected=\"5:bob\" actual=5",
+      "count": 2
+    },
+    {
+      "error_signature": "AssertionError:case 1 mismatch: expected=26 actual=\"26\"",
+      "count": 2
+    },
+    {
+      "error_signature": "AssertionError:case 1 mismatch: args=(2, -5), expected=-3, actual=7",
+      "count": 1
+    },
+    {
+      "error_signature": "AssertionError:case 1 mismatch: args=(-15, -16), expected=-31, actual=1",
+      "count": 1
+    },
+    {
+      "error_signature": "AssertionError:case 1 mismatch: args=(-11, 11), expected=0, actual=-22",
+      "count": 1
+    },
+    {
+      "error_signature": "AssertionError:case 1 mismatch: args=(-14, -3), expected=-17, actual=-11",
+      "count": 1
+    }
+  ],
+  "flaky_keys": [],
+  "flaky_groups": [],
+  "mismatch_samples": [],
+  "env_fingerprint_current": {
+    "python_version": "3.12.1",
+    "node_version": "v24.11.1",
+    "tsc_version": "unknown",
+    "platform": "Linux-6.8.0-1041-azure-x86_64-with-glibc2.39",
+    "git_commit": "435c6cddf83d732186148fb772d5c7d0ca230988"
+  },
+  "env_fingerprint_mismatch_count": 0
+}

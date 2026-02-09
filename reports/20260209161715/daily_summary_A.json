@@ -1,0 +1,137 @@
+{
+  "generated_at_utc": "2026-02-09T16:17:33.416718+00:00",
+  "date": "20260209161715",
+  "mode": "A",
+  "seed": 20260229421924,
+  "executed_tasks": 120,
+  "proposer_enabled": false,
+  "budget": {
+    "max_tasks_per_day": 120,
+    "max_attempts_per_task": 8,
+    "max_total_seconds": 2400.0,
+    "elapsed_seconds": 18.082619
+  },
+  "run_count": 120,
+  "overall_pass_rate": 0.991667,
+  "pass_rate_by_language": {
+    "py": 0.984127,
+    "ts": 1.0
+  },
+  "mean_attempts": 1.858333,
+  "signature_coverage": 0.059701,
+  "top_uncovered_signatures": [
+    {
+      "language": "ts",
+      "error_signature": "AssertionError:case 2 mismatch: expected=\"\" actual=undefined",
+      "count": 12
+    },
+    {
+      "language": "ts",
+      "error_signature": "RuntimeError:case 2 raised TypeError: Cannot read properties of null (reading 'trim')",
+      "count": 12
+    },
+    {
+      "language": "ts",
+      "error_signature": "TS1005:<path>",
+      "count": 12
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 2 mismatch: args=('level',), expected=True, actual=False",
+      "count": 3
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=('level',), expected=True, actual=False",
+      "count": 2
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=('noon',), expected=True, actual=False",
+      "count": 2
+    },
+    {
+      "language": "ts",
+      "error_signature": "AssertionError:case 1 mismatch: expected=\"1:alice\" actual=1",
+      "count": 2
+    },
+    {
+      "language": "ts",
+      "error_signature": "AssertionError:case 1 mismatch: expected=\"5:alice\" actual=5",
+      "count": 2
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-1, -4), expected=3, actual=-5",
+      "count": 1
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-10, -7, 5), expected=-7, actual=-10",
+      "count": 1
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-12, -17), expected=5, actual=-29",
+      "count": 1
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-12, -9, 1), expected=-9, actual=-12",
+      "count": 1
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-12, -9, 4), expected=-9, actual=-12",
+      "count": 1
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-12, -9, 8), expected=-9, actual=-12",
+      "count": 1
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-15, -16), expected=1, actual=-31",
+      "count": 1
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-17, 14), expected=-31, actual=-3",
+      "count": 1
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-17, 16), expected=-33, actual=-1",
+      "count": 1
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-19, -18), expected=-1, actual=-37",
+      "count": 1
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-2, 8), expected=6, actual=-10",
+      "count": 1
+    },
+    {
+      "language": "py",
+      "error_signature": "AssertionError:case 1 mismatch: args=(-20, 11), expected=-220, actual=-9",
+      "count": 1
+    }
+  ],
+  "timeout_rate": 0.0,
+  "flaky_groups_count": 0,
+  "attempts_saved_by_patchers_approx": 16,
+  "replay_match": 240,
+  "replay_eligible": 240,
+  "replay_match_rate": 100.0,
+  "env_fingerprint_mismatch_count": 0,
+  "unreplayable_proposer_missing_code": 0,
+  "proposer_budget_spent": {
+    "calls": 0,
+    "seconds": 0.0,
+    "calls_by_proposer": {}
+  }
+}
